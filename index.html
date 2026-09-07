@@ -29,20 +29,28 @@
   <canvas id="sakura-canvas"></canvas>
 
   <!-- Section 1: Hero Welcome -->
-  <header class="h-screen relative flex items-center justify-center text-white overflow-hidden">
+  <header class="h-screen relative flex flex-col items-center justify-center text-white overflow-hidden">
+    <!-- Latar Belakang Video -->
     <video autoplay loop muted playsinline class="absolute top-0 left-0 w-full h-full object-cover z-[-1]">
       <source src="img/sa.mp4" type="video/mp4">
       Your browser does not support the video tag.
     </video>
 
+    <!-- Overlay Gelap -->
     <div class="absolute inset-0 bg-black bg-opacity-40"></div>
 
-    <div class="text-center z-10 p-4" data-aos="fade-in" data-aos-duration="1500">
+    <div class="text-center z-10 p-4 flex flex-col items-center" data-aos="fade-in" data-aos-duration="1500">
+      
+      <!-- FOTO BENTUK LOVE -->
+      <!-- Ganti 'img/foto-utama.jpg' dengan fotomu -->
+      <img src="img/foto-utama.jpg" alt="Foto Utama" class="w-56 h-56 md:w-72 md:h-72 object-cover bentuk-love mb-6 hover:scale-105 transition-transform duration-300">
+      
       <h1 class="text-5xl md:text-7xl font-anime drop-shadow-lg">Happy Birthday, [Nama]!</h1>
-      <p class="mt-4 text-xl font-semibold">Celebrating a wonderful journey of...</p>
-      <div id="countdown" class="mt-6 text-2xl font-semibold tracking-widest leading-relaxed"></div>
+      <p class="mt-4 text-xl font-semibold drop-shadow-md">Celebrating a wonderful journey of...</p>
+
     </div>
   </header>
+
 
   <!-- Main Content -->
   <main class="container mx-auto p-6 md:p-12 relative z-10">
