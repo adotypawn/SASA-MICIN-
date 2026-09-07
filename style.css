@@ -5,7 +5,7 @@ body {
     /* Gradasi pink transparan ditumpuk di atas foto */
     background-image: 
         linear-gradient(135deg, rgba(255, 105, 180, 0.8), rgba(255, 20, 147, 0.9)), 
-        url('LINK_FOTO_KAMU_DISINI.jpg');
+        url('bg.jpg');
     
     background-size: cover; /* Membuat foto memenuhi seluruh layar */
     background-position: center; /* Memposisikan foto di tengah */
