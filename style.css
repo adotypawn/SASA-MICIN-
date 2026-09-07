@@ -1,18 +1,32 @@
-/* Custom styles for our Anime Theme */
+/* Custom styles for our Theme */
 body {
     font-family: 'Poppins', sans-serif;
-    background-color: #F0F8FF; /* Alice Blue - a very light sky blue */
-    color: #2c3e50; /* Dark Navy/Slate */
+    
+    /* Gradasi pink transparan ditumpuk di atas foto */
+    background-image: 
+        linear-gradient(135deg, rgba(255, 105, 180, 0.8), rgba(255, 20, 147, 0.9)), 
+        url('LINK_FOTO_KAMU_DISINI.jpg');
+    
+    background-size: cover; /* Membuat foto memenuhi seluruh layar */
+    background-position: center; /* Memposisikan foto di tengah */
+    background-attachment: fixed; /* Membuat background tidak ikut terscroll */
+    background-repeat: no-repeat;
+    
+    color: #ffffff; /* Teks diubah menjadi putih agar kontras dengan background pink */
 }
+
 .font-anime {
     font-family: 'Mochiy Pop One', sans-serif;
 }
+
 .text-sakura {
     color: #FFB7C5; /* Cherry Blossom Pink */
 }
+
 .bg-navy {
     background-color: #2c3e50;
 }
+
 /* Style for the falling petals canvas */
 #sakura-canvas {
     position: fixed;
@@ -23,6 +37,7 @@ body {
     z-index: 5;
     pointer-events: none; /* Allows clicks to go through the canvas */
 }
+
 /* For hiding the scrollbar */
 .scrollbar-hide::-webkit-scrollbar {
     display: none;
@@ -31,38 +46,3 @@ body {
     -ms-overflow-style: none;  /* IE and Edge */
     scrollbar-width: none;  /* Firefox */
 }
-
-/* Custom styles for our Anime Theme */
-body {
-    font-family: 'Poppins', sans-serif;
-    background-color: #F0F8FF; /* Alice Blue - a very light sky blue */
-    color: #2c3e50; /* Dark Navy/Slate */
-}
-.font-anime {
-    font-family: 'Mochiy Pop One', sans-serif;
-}
-.text-sakura {
-    color: #FFB7C5; /* Cherry Blossom Pink */
-}
-.bg-navy {
-    background-color: #2c3e50;
-}
-/* Style for the falling petals canvas */
-#sakura-canvas {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 5;
-    pointer-events: none; /* Allows clicks to go through the canvas */
-}
-/* For hiding the scrollbar */
-.scrollbar-hide::-webkit-scrollbar {
-    display: none;
-}
-.scrollbar-hide {
-    -ms-overflow-style: none;  /* IE and Edge */
-    scrollbar-width: none;  /* Firefox */
-}
-
