@@ -16,24 +16,6 @@ document.addEventListener('DOMContentLoaded', function() { // Perbaikan: 'docume
         });
     }
 
-    // --- Hall of Fame Scroller ---
-    const scroller = document.getElementById('hall-of-fame-scroller');
-    const scrollLeftBtn = document.getElementById('scroll-left-btn');
-    const scrollRightBtn = document.getElementById('scroll-right-btn');
-    if (scroller && scrollLeftBtn && scrollRightBtn) {
-        const card = scroller.querySelector('.snap-center');
-        if (card) {
-            const cardWidth = card.offsetWidth + parseInt(getComputedStyle(card.parentElement).gap || 0);
-
-            scrollRightBtn.addEventListener('click', () => {
-                scroller.scrollBy({ left: cardWidth, behavior: 'smooth' });
-            });
-            scrollLeftBtn.addEventListener('click', () => {
-                scroller.scrollBy({ left: -cardWidth, behavior: 'smooth' });
-            });
-        }
-    }
-
     // --- Video Uploader ---
     const videoUploadInput = document.getElementById('video-upload');
     const videoPlayer = document.getElementById('video-player');
@@ -164,7 +146,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 document.addEventListener('DOMContentLoaded', function() {
     
-    // --- Efek Buka Kotak Misterius di Slide Pertama ---
+    // Membuka Kotak Misterius di Slide Pertama
     const mysteryBox = document.getElementById('mystery-box');
     const content1 = document.getElementById('hero-content-1');
     const content2 = document.getElementById('hero-content-2');
@@ -172,20 +154,15 @@ document.addEventListener('DOMContentLoaded', function() {
 
     if (mysteryBox) {
         mysteryBox.addEventListener('click', () => {
-            // Kotak memudar dan hilang
             mysteryBox.style.opacity = '0';
-            setTimeout(() => {
-                mysteryBox.style.display = 'none';
-            }, 700);
-
-            // Memunculkan konten foto love dan teks secara bergiliran
+            setTimeout(() => { mysteryBox.style.display = 'none'; }, 700);
             if (content1) content1.style.opacity = '1';
             setTimeout(() => { if (content2) content2.style.opacity = '1'; }, 300);
             setTimeout(() => { if (content3) content3.style.opacity = '1'; }, 600);
         });
     }
 
-    // --- Tombol Interaktif Bergilir (Step by Step) ---
+    // Tombol Next bergiliran
     const btnOpenLetter = document.getElementById('btn-open-letter');
     const letterSection = document.getElementById('letter-section');
     
@@ -216,3 +193,4 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 });
+
