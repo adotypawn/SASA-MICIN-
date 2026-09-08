@@ -162,3 +162,57 @@ document.addEventListener('DOMContentLoaded', function() {
     // --- Inisialisasi Fitur Lainnya (AOS, Sakura Canvas, dll) ---
     // (Biarkan kode sakura dan slider yang sudah ada sebelumnya tetap berada di sini)
 });
+document.addEventListener('DOMContentLoaded', function() {
+    
+    // --- Efek Buka Kotak Misterius di Slide Pertama ---
+    const mysteryBox = document.getElementById('mystery-box');
+    const content1 = document.getElementById('hero-content-1');
+    const content2 = document.getElementById('hero-content-2');
+    const content3 = document.getElementById('hero-content-3');
+
+    if (mysteryBox) {
+        mysteryBox.addEventListener('click', () => {
+            // Kotak memudar dan hilang
+            mysteryBox.style.opacity = '0';
+            setTimeout(() => {
+                mysteryBox.style.display = 'none';
+            }, 700);
+
+            // Memunculkan konten foto love dan teks secara bergiliran
+            if (content1) content1.style.opacity = '1';
+            setTimeout(() => { if (content2) content2.style.opacity = '1'; }, 300);
+            setTimeout(() => { if (content3) content3.style.opacity = '1'; }, 600);
+        });
+    }
+
+    // --- Tombol Interaktif Bergilir (Step by Step) ---
+    const btnOpenLetter = document.getElementById('btn-open-letter');
+    const letterSection = document.getElementById('letter-section');
+    
+    const btnNext1 = document.getElementById('btn-next-1');
+    const memoriesSection = document.getElementById('memories-section');
+    
+    const btnNext2 = document.getElementById('btn-next-2');
+    const finaleSection = document.getElementById('finale-section');
+
+    if (btnOpenLetter && letterSection) {
+        btnOpenLetter.addEventListener('click', () => {
+            letterSection.style.display = 'block';
+            letterSection.scrollIntoView({ behavior: 'smooth' });
+        });
+    }
+
+    if (btnNext1 && memoriesSection) {
+        btnNext1.addEventListener('click', () => {
+            memoriesSection.style.display = 'block';
+            memoriesSection.scrollIntoView({ behavior: 'smooth' });
+        });
+    }
+
+    if (btnNext2 && finaleSection) {
+        btnNext2.addEventListener('click', () => {
+            finaleSection.style.display = 'flex';
+            finaleSection.scrollIntoView({ behavior: 'smooth' });
+        });
+    }
+});
