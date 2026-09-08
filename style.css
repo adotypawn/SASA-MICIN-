@@ -1,28 +1,49 @@
-/* Custom styles for our Theme */
-html, body{
-  max-width: 100%;
-  overflow-x: hidden;
-}
-body {
+/* Custom styles untuk latar belakang foto dan tema gelap-pink */
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
     font-family: 'Poppins', sans-serif;
     
-    /* Gradasi pink transparan ditumpuk di atas foto */
+    /* Gradasi pink transparan ditumpuk di atas foto latar belakang */
     background-image: 
-        linear-gradient(135deg, rgba(255, 105, 180, 0.8), rgba(255, 20, 147, 0.9)), 
-        url('img/bg.jpeg');
+        linear-gradient(135deg, rgba(20, 0, 10, 0.85), rgba(80, 20, 50, 0.9)), 
+        url('img/bg.jpeg'); /* Ganti 'img/sa.jpg' dengan foto latar belakangmu */
     
-    background-size: cover; /* Membuat foto memenuhi seluruh layar */
-    background-position: center; /* Memposisikan foto di tengah */
-    background-attachment: fixed; /* Membuat background tidak ikut terscroll */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
     background-repeat: no-repeat;
     
-    color: #ffffff; /* Teks diubah menjadi putih agar kontras dengan background pink */
+    color: #ffffff;
 }
 
 .font-anime {
     font-family: 'Mochiy Pop One', sans-serif;
 }
 
+/* Custom Heart Shape Mask untuk Foto Utama */
+.bentuk-love {
+    -webkit-mask-image: url('data:image/svg+xml;charset=UTF-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M462.3 62.6C407.5 15.9 326 24.3 275.7 76.2L256 96.5l-19.7-20.3C186.1 24.3 104.5 15.9 49.7 62.6c-62.8 53.6-66.1 149.8-9.9 207.9l193.5 199.8c12.5 12.9 32.8 12.9 45.3 0l193.5-199.8c56.3-58.1 53-154.3-9.8-207.9z"/></svg>');
+    mask-image: url('data:image/svg+xml;charset=UTF-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M462.3 62.6C407.5 15.9 326 24.3 275.7 76.2L256 96.5l-19.7-20.3C186.1 24.3 104.5 15.9 49.7 62.6c-62.8 53.6-66.1 149.8-9.9 207.9l193.5 199.8c12.5 12.9 32.8 12.9 45.3 0l193.5-199.8c56.3-58.1 53-154.3-9.8-207.9z"/></svg>');
+    -webkit-mask-size: contain;
+    mask-size: contain;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+    mask-position: center;
+    filter: drop-shadow(0 10px 20px rgba(255, 105, 180, 0.6));
+}
+
+/* Style untuk Canvas Sakura */
+#sakura-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    pointer-events: none;
+}
 .text-sakura {
     color: #FFB7C5; /* Cherry Blossom Pink */
 }
