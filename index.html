@@ -21,17 +21,29 @@
   <canvas id="sakura-canvas"></canvas>
 
   <header class="h-screen relative flex flex-col items-center justify-between p-6 text-center overflow-hidden">
-    <div class="z-10 pt-8" data-aos="fade-down">
+    
+    <div id="mystery-box" class="absolute inset-0 z-30 flex flex-col items-center justify-center bg-black/80 backdrop-blur-md transition-all duration-700 p-4">
+      <div class="border-2 border-pink-400/60 bg-black/60 p-8 rounded-3xl shadow-2xl max-w-sm w-full text-center cursor-pointer hover:border-pink-300 transition-all hover:scale-105">
+        <div class="text-5xl mb-4 animate-bounce">🎁</div>
+        <h3 class="text-xl font-anime text-pink-300 mb-2">A Special Gift For You</h3>
+        <p class="text-sm text-gray-300 mb-6">Sentuh kotak ini untuk membukanya ✨</p>
+        <button class="bg-pink-500 hover:bg-pink-600 text-white font-semibold px-6 py-2.5 rounded-full text-sm shadow-lg tracking-wider transition-colors">
+          BUKA KOTAK
+        </button>
+      </div>
+    </div>
+
+    <div class="z-10 pt-8 opacity-0 transition-opacity duration-1000" id="hero-content-1">
       <p class="text-xs md:text-sm tracking-[0.25em] text-pink-300 uppercase font-semibold">Special Gift</p>
       <h2 class="text-sm md:text-base tracking-widest text-gray-200 mt-1">TO SOMEONE SPECIAL IN MY LIFE ✨</h2>
     </div>
 
-    <div class="z-10 my-auto flex flex-col items-center" data-aos="zoom-in" data-aos-duration="1200">
-      <img src="img/fotoutama.jpeg" alt="Special Photo" class="w-52 h-52 md:w-64 md:h-64 object-cover bentuk-love shadow-2xl mb-6">
+    <div class="z-10 my-auto flex flex-col items-center opacity-0 transition-opacity duration-1000" id="hero-content-2">
+      <img src="img/foto-utama.jpg" alt="Special Photo" class="w-52 h-52 md:w-64 md:h-64 object-cover bentuk-love shadow-2xl mb-6">
       <h1 class="text-3xl md:text-5xl font-anime drop-shadow-lg text-white">Happy Birthday, [Nama]!</h1>
     </div>
 
-    <div class="z-10 pb-12" data-aos="fade-up">
+    <div class="z-10 pb-12 opacity-0 transition-opacity duration-1000" id="hero-content-3">
       <button id="btn-open-letter" class="inline-flex items-center gap-2 border border-pink-400/50 bg-black/40 hover:bg-pink-500/20 text-pink-200 px-6 py-3 rounded-full text-sm font-semibold tracking-wider transition-all duration-300 backdrop-blur-md shadow-lg cursor-pointer">
         OPEN LETTER 
         <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
