@@ -61,6 +61,5 @@ body {
     -webkit-mask-position: center;
     mask-position: center;
     
-    /* Efek bayangan mengikuti bentuk love */
-    filter: drop-shadow(0 10px 15px rgba(255, 105, 180, 0.6));
+
 }
