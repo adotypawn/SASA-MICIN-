@@ -84,3 +84,7 @@ html, body {
     
 
 }
+/* Sembunyikan section sebelum dipanggil */
+.hidden-section {
+    display: none;
+}
