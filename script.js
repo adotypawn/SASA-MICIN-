@@ -1,33 +1,6 @@
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function() { // Perbaikan: 'document' huruf kecil
 
-    // --- Live Age Counter ---
-    const birthDate = new Date('2009-10-27T00:00:00');
-    const countdownElement = document.getElementById('countdown');
-
-    function updateAge() {
-        const now = new Date();
-
-        let years = now.getFullYear() - birthDate.getFullYear();
-        let months = now.getMonth() - birthDate.getMonth();
-        let days = now.getDate() - birthDate.getDate();
-        let hours = now.getHours() - birthDate.getHours();
-        let minutes = now.getMinutes() - birthDate.getMinutes();
-        let seconds = now.getSeconds() - birthDate.getSeconds();
-
-        if (seconds < 0) { seconds += 60; minutes--; }
-        if (minutes < 0) { minutes += 60; hours--; }
-        if (hours < 0) { hours += 24; days--; }
-        if (days < 0) {
-            const prevMonth = new Date(now.getFullYear(), now.getMonth(), 0);
-            days += prevMonth.getDate();
-            months--;
-        }
-        if (months < 0) { months += 12; years--; }
-
-        countdownElement.innerHTML = `${years}y ${months}m ${days}d <br> ${hours}h ${minutes}m ${seconds}s`;
-    }
-    setInterval(updateAge, 1000);
-    updateAge();
+    // --- Live Age Counter sudah dihapus karena elemen HTML-nya sudah kita hapus ---
 
     // --- Initialize AOS (Animate on Scroll) ---
     AOS.init({
@@ -36,10 +9,12 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // --- Initialize LightGallery ---
-    lightGallery(document.getElementById('lightgallery'), {
-        speed: 500,
-        download: false
-    });
+    if (document.getElementById('lightgallery')) {
+        lightGallery(document.getElementById('lightgallery'), {
+            speed: 500,
+            download: false
+        });
+    }
 
     // --- Hall of Fame Scroller ---
     const scroller = document.getElementById('hall-of-fame-scroller');
@@ -47,14 +22,16 @@ document.addEventListener('DOMContentLoaded', function() {
     const scrollRightBtn = document.getElementById('scroll-right-btn');
     if (scroller && scrollLeftBtn && scrollRightBtn) {
         const card = scroller.querySelector('.snap-center');
-        const cardWidth = card.offsetWidth + parseInt(getComputedStyle(card.parentElement).gap);
+        if (card) {
+            const cardWidth = card.offsetWidth + parseInt(getComputedStyle(card.parentElement).gap || 0);
 
-        scrollRightBtn.addEventListener('click', () => {
-            scroller.scrollBy({ left: cardWidth, behavior: 'smooth' });
-        });
-        scrollLeftBtn.addEventListener('click', () => {
-            scroller.scrollBy({ left: -cardWidth, behavior: 'smooth' });
-        });
+            scrollRightBtn.addEventListener('click', () => {
+                scroller.scrollBy({ left: cardWidth, behavior: 'smooth' });
+            });
+            scrollLeftBtn.addEventListener('click', () => {
+                scroller.scrollBy({ left: -cardWidth, behavior: 'smooth' });
+            });
+        }
     }
 
     // --- Video Uploader ---
@@ -78,7 +55,6 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     }
-
 
     // --- Sakura Petal Animation ---
     const canvas = document.getElementById('sakura-canvas');
@@ -150,4 +126,3 @@ document.addEventListener('DOMContentLoaded', function() {
         animate();
     }
 });
-
