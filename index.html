@@ -21,7 +21,6 @@
   <canvas id="sakura-canvas"></canvas>
 
   <header class="h-screen relative flex flex-col items-center justify-between p-6 text-center overflow-hidden">
-    
     <div class="z-10 pt-8" data-aos="fade-down">
       <p class="text-xs md:text-sm tracking-[0.25em] text-pink-300 uppercase font-semibold">Special Gift</p>
       <h2 class="text-sm md:text-base tracking-widest text-gray-200 mt-1">TO SOMEONE SPECIAL IN MY LIFE ✨</h2>
@@ -33,18 +32,18 @@
     </div>
 
     <div class="z-10 pb-12" data-aos="fade-up">
-      <a href="#letter-section" class="inline-flex items-center gap-2 border border-pink-400/50 bg-black/40 hover:bg-pink-500/20 text-pink-200 px-6 py-3 rounded-full text-sm font-semibold tracking-wider transition-all duration-300 backdrop-blur-md shadow-lg">
+      <button id="btn-open-letter" class="inline-flex items-center gap-2 border border-pink-400/50 bg-black/40 hover:bg-pink-500/20 text-pink-200 px-6 py-3 rounded-full text-sm font-semibold tracking-wider transition-all duration-300 backdrop-blur-md shadow-lg cursor-pointer">
         OPEN LETTER 
         <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
         </svg>
-      </a>
+      </button>
     </div>
   </header>
 
   <main class="container mx-auto p-4 md:p-12 relative z-10">
 
-    <section id="letter-section" class="my-16 md:my-24 max-w-2xl mx-auto" data-aos="fade-up">
+    <section id="letter-section" class="my-16 md:my-24 max-w-2xl mx-auto hidden-section">
       <div class="bg-black/60 border border-pink-500/30 text-gray-200 p-6 md:p-8 rounded-2xl shadow-2xl backdrop-blur-md space-y-4">
         <p class="text-pink-300 font-semibold mb-2">Hey [Nama],</p>
         <p class="leading-relaxed text-sm md:text-base">Thank you for being such a strong and amazing person. I'm really proud of you. You've done so well until this very moment, chasing your dreams and fighting your own battles with grace.</p>
@@ -53,14 +52,14 @@
         <p class="leading-relaxed text-sm md:text-base font-medium text-pink-200 pt-2">Never forget to be grateful for how far you've come, and keep moving forward with a happy heart. May your days be filled with beautiful blessings and endless joy. Keep shining, beautiful soul... ✨</p>
         
         <div class="pt-6 text-center">
-          <a href="#memories-section" class="inline-flex items-center gap-2 text-xs md:text-sm tracking-widest text-pink-300 hover:text-white uppercase font-semibold transition-colors">
+          <button id="btn-next-1" class="inline-flex items-center gap-2 text-xs md:text-sm tracking-widest text-pink-300 hover:text-white uppercase font-semibold transition-colors cursor-pointer bg-transparent border-0">
             NEXT →
-          </a>
+          </button>
         </div>
       </div>
     </section>
 
-    <section id="memories-section" class="my-16 md:my-24 max-w-3xl mx-auto text-center" data-aos="fade-up">
+    <section id="memories-section" class="my-16 md:my-24 max-w-3xl mx-auto text-center hidden-section">
       <h2 class="text-xs md:text-sm tracking-[0.3em] text-pink-400 uppercase font-semibold mb-8">✨ OUR MEMORIES ✨</h2>
       
       <div class="space-y-8" id="lightgallery">
@@ -81,13 +80,13 @@
       </div>
 
       <div class="mt-12">
-        <a href="#finale-section" class="inline-flex items-center gap-2 text-xs md:text-sm tracking-widest text-pink-300 hover:text-white uppercase font-semibold transition-colors">
+        <button id="btn-next-2" class="inline-flex items-center gap-2 text-xs md:text-sm tracking-widest text-pink-300 hover:text-white uppercase font-semibold transition-colors cursor-pointer bg-transparent border-0">
           NEXT →
-        </a>
+        </button>
       </div>
     </section>
 
-    <section id="finale-section" class="h-screen flex flex-col items-center justify-center text-center my-12" data-aos="zoom-in">
+    <section id="finale-section" class="h-screen flex flex-col items-center justify-center text-center my-12 hidden-section">
       <div class="border-y-2 border-white/80 py-8 px-12 md:px-24 bg-black/40 backdrop-blur-sm rounded-xl">
         <h2 class="text-4xl md:text-7xl font-anime tracking-wider text-white">
           I <span class="text-pink-500">❤️</span> YOU
