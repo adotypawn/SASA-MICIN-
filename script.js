@@ -126,3 +126,39 @@ document.addEventListener('DOMContentLoaded', function() { // Perbaikan: 'docume
         animate();
     }
 });
+document.addEventListener('DOMContentLoaded', function() {
+    
+    // --- Tombol Interaktif Bergilir (Step by Step) ---
+    const btnOpenLetter = document.getElementById('btn-open-letter');
+    const letterSection = document.getElementById('letter-section');
+    
+    const btnNext1 = document.getElementById('btn-next-1');
+    const memoriesSection = document.getElementById('memories-section');
+    
+    const btnNext2 = document.getElementById('btn-next-2');
+    const finaleSection = document.getElementById('finale-section');
+
+    if (btnOpenLetter && letterSection) {
+        btnOpenLetter.addEventListener('click', () => {
+            letterSection.style.display = 'block';
+            letterSection.scrollIntoView({ behavior: 'smooth' });
+        });
+    }
+
+    if (btnNext1 && memoriesSection) {
+        btnNext1.addEventListener('click', () => {
+            memoriesSection.style.display = 'block';
+            memoriesSection.scrollIntoView({ behavior: 'smooth' });
+        });
+    }
+
+    if (btnNext2 && finaleSection) {
+        btnNext2.addEventListener('click', () => {
+            finaleSection.style.display = 'flex';
+            finaleSection.scrollIntoView({ behavior: 'smooth' });
+        });
+    }
+
+    // --- Inisialisasi Fitur Lainnya (AOS, Sakura Canvas, dll) ---
+    // (Biarkan kode sakura dan slider yang sudah ada sebelumnya tetap berada di sini)
+});
