@@ -92,3 +92,9 @@ html, body {
 .hidden-section {
     display: none !important;
 }
+/* Memastikan tombol selalu bisa disentuh/diklik */
+button, a {
+    position: relative;
+    z-index: 40;
+    pointer-events: auto !important;
+}
