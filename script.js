@@ -110,87 +110,60 @@ document.addEventListener('DOMContentLoaded', function() { // Perbaikan: 'docume
 });
 document.addEventListener('DOMContentLoaded', function() {
     
-    // --- Tombol Interaktif Bergilir (Step by Step) ---
-    const btnOpenLetter = document.getElementById('btn-open-letter');
-    const letterSection = document.getElementById('letter-section');
-    
-    const btnNext1 = document.getElementById('btn-next-1');
-    const memoriesSection = document.getElementById('memories-section');
-    
-    const btnNext2 = document.getElementById('btn-next-2');
-    const finaleSection = document.getElementById('finale-section');
-
-    if (btnOpenLetter && letterSection) {
-        btnOpenLetter.addEventListener('click', () => {
-            letterSection.style.display = 'block';
-            letterSection.scrollIntoView({ behavior: 'smooth' });
-        });
-    }
-
-    if (btnNext1 && memoriesSection) {
-        btnNext1.addEventListener('click', () => {
-            memoriesSection.style.display = 'block';
-            memoriesSection.scrollIntoView({ behavior: 'smooth' });
-        });
-    }
-
-    if (btnNext2 && finaleSection) {
-        btnNext2.addEventListener('click', () => {
-            finaleSection.style.display = 'flex';
-            finaleSection.scrollIntoView({ behavior: 'smooth' });
-        });
-    }
-
-    // --- Inisialisasi Fitur Lainnya (AOS, Sakura Canvas, dll) ---
-    // (Biarkan kode sakura dan slider yang sudah ada sebelumnya tetap berada di sini)
-});
-document.addEventListener('DOMContentLoaded', function() {
-    
-    // Membuka Kotak Misterius di Slide Pertama
     const mysteryBox = document.getElementById('mystery-box');
     const content1 = document.getElementById('hero-content-1');
     const content2 = document.getElementById('hero-content-2');
     const content3 = document.getElementById('hero-content-3');
 
+    // 1. Klik Kotak Misterius
     if (mysteryBox) {
         mysteryBox.addEventListener('click', () => {
             mysteryBox.style.opacity = '0';
-            setTimeout(() => { mysteryBox.style.display = 'none'; }, 700);
+            setTimeout(() => { 
+                mysteryBox.style.display = 'none'; // Kotak benar-benar dihilangkan agar tombol di bawahnya bisa diklik
+            }, 700);
+
             if (content1) content1.style.opacity = '1';
             setTimeout(() => { if (content2) content2.style.opacity = '1'; }, 300);
             setTimeout(() => { if (content3) content3.style.opacity = '1'; }, 600);
         });
     }
 
-    // Tombol Next bergiliran
+    // 2. Tombol Open Letter
     const btnOpenLetter = document.getElementById('btn-open-letter');
     const letterSection = document.getElementById('letter-section');
-    
-    const btnNext1 = document.getElementById('btn-next-1');
-    const memoriesSection = document.getElementById('memories-section');
-    
-    const btnNext2 = document.getElementById('btn-next-2');
-    const finaleSection = document.getElementById('finale-section');
 
     if (btnOpenLetter && letterSection) {
-        btnOpenLetter.addEventListener('click', () => {
+        btnOpenLetter.addEventListener('click', (e) => {
+            e.preventDefault(); // Mencegah loncatan default link
             letterSection.style.display = 'block';
             letterSection.scrollIntoView({ behavior: 'smooth' });
         });
     }
 
+    // 3. Tombol Next 1 (Menuju Memories)
+    const btnNext1 = document.getElementById('btn-next-1');
+    const memoriesSection = document.getElementById('memories-section');
+
     if (btnNext1 && memoriesSection) {
-        btnNext1.addEventListener('click', () => {
+        btnNext1.addEventListener('click', (e) => {
+            e.preventDefault();
             memoriesSection.style.display = 'block';
             memoriesSection.scrollIntoView({ behavior: 'smooth' });
         });
     }
 
+    // 4. Tombol Next 2 (Menuju Finale / I Love You)
+    const btnNext2 = document.getElementById('btn-next-2');
+    const finaleSection = document.getElementById('finale-section');
+
     if (btnNext2 && finaleSection) {
-        btnNext2.addEventListener('click', () => {
+        btnNext2.addEventListener('click', (e) => {
+            e.preventDefault();
             finaleSection.style.display = 'flex';
             finaleSection.scrollIntoView({ behavior: 'smooth' });
         });
     }
 });
+
 
