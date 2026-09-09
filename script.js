@@ -1,97 +1,76 @@
 document.addEventListener('DOMContentLoaded', function() {
 
-    // --- 1. Inisialisasi AOS (Animate on Scroll) ---
-    AOS.init({
-        duration: 800,
-        once: true,
-    });
+    // --- Inisialisasi AOS (Animate on Scroll) ---
+    if (typeof AOS !== 'undefined') {
+        AOS.init({ duration: 800, once: true });
+    }
 
-    // --- 2. Inisialisasi LightGallery ---
-    if (document.getElementById('lightgallery')) {
-        lightGallery(document.getElementById('lightgallery'), {
+    // --- Inisialisasi LightGallery ---
+    const lightGalleryElement = document.getElementById('lightgallery');
+    if (lightGalleryElement && typeof lightGallery !== 'undefined') {
+        lightGallery(lightGalleryElement, {
             speed: 500,
             download: false
         });
     }
 
-    // --- 3. Efek Buka Kotak Misterius di Slide Pertama ---
-document.addEventListener('DOMContentLoaded', function() {
-    
-    // --- Efek Buka Kotak Misterius ---
+    // --- Efek Buka Kotak Misterius di Slide Pertama ---
     const mysteryBox = document.getElementById('mystery-box');
     const content1 = document.getElementById('hero-content-1');
     const content2 = document.getElementById('hero-content-2');
     const content3 = document.getElementById('hero-content-3');
 
     if (mysteryBox) {
-        mysteryBox.addEventListener('click', () => {
-            // Sembunyikan kotak dan matikan fungsi kliknya secara permanen
-            mysteryBox.classList.add('hidden-box');
+        mysteryBox.addEventListener('click', function() {
+            // Kotak langsung disembunyikan dan dimatikan
+            this.style.opacity = '0';
+            this.style.pointerEvents = 'none';
+            setTimeout(() => {
+                this.style.display = 'none';
+            }, 500);
 
-            // Munculkan isi konten di baliknya
+            // Memunculkan konten foto love dan tombol OPEN LETTER
             if (content1) content1.style.opacity = '1';
             setTimeout(() => { if (content2) content2.style.opacity = '1'; }, 300);
             setTimeout(() => { if (content3) content3.style.opacity = '1'; }, 600);
         });
     }
 
-    // --- Tombol Open Letter ---
+    // --- Tombol Interaktif Bergilir (Open Letter & Next) ---
     const btnOpenLetter = document.getElementById('btn-open-letter');
     const letterSection = document.getElementById('letter-section');
+    
+    const btnNext1 = document.getElementById('btn-next-1');
+    const memoriesSection = document.getElementById('memories-section');
+    
+    const btnNext2 = document.getElementById('btn-next-2');
+    const finaleSection = document.getElementById('finale-section');
 
     if (btnOpenLetter && letterSection) {
-        btnOpenLetter.addEventListener('click', (e) => {
+        btnOpenLetter.addEventListener('click', function(e) {
             e.preventDefault();
             letterSection.style.display = 'block';
             letterSection.scrollIntoView({ behavior: 'smooth' });
         });
     }
 
-    // --- Tombol Next 1 & 2 ---
-    const btnNext1 = document.getElementById('btn-next-1');
-    const memoriesSection = document.getElementById('memories-section');
     if (btnNext1 && memoriesSection) {
-        btnNext1.addEventListener('click', (e) => {
+        btnNext1.addEventListener('click', function(e) {
             e.preventDefault();
             memoriesSection.style.display = 'block';
             memoriesSection.scrollIntoView({ behavior: 'smooth' });
         });
     }
 
-    const btnNext2 = document.getElementById('btn-next-2');
-    const finaleSection = document.getElementById('finale-section');
     if (btnNext2 && finaleSection) {
-        btnNext2.addEventListener('click', (e) => {
+        btnNext2.addEventListener('click', function(e) {
             e.preventDefault();
             finaleSection.style.display = 'flex';
             finaleSection.scrollIntoView({ behavior: 'smooth' });
         });
     }
-});
 
-    // --- 5. Video Uploader (Opsional) ---
-    const videoUploadInput = document.getElementById('video-upload');
-    const videoPlayer = document.getElementById('video-player');
-    const videoUploadLabel = document.getElementById('video-upload-label');
-
-    if (videoUploadInput && videoPlayer && videoUploadLabel) {
-        videoUploadLabel.addEventListener('click', () => {
-            videoUploadInput.click();
-        });
-
-        videoUploadInput.addEventListener('change', (event) => {
-            const file = event.target.files[0];
-            if (file) {
-                const videoURL = URL.createObjectURL(file);
-                videoPlayer.src = videoURL;
-                videoPlayer.classList.remove('hidden');
-                videoUploadLabel.classList.add('hidden');
-                videoPlayer.play();
-            }
-        });
-    }
-
-    // --- 6. Animasi Kelopak Sakura ---
+    // --- Animasi Kelopak Sakura ---
     const canvas = document.getElementById('sakura-canvas');
     if (canvas) {
         const ctx = canvas.getContext('2d');
@@ -111,19 +90,14 @@ document.addEventListener('DOMContentLoaded', function() {
             this.w = 25 + Math.random() * 15;
             this.h = 20 + Math.random() * 10;
             this.opacity = this.w / 40;
-            this.flip = Math.random();
             this.xSpeed = 1.5 + Math.random() * 2;
             this.ySpeed = 1 + Math.random() * 1;
-            this.flipSpeed = Math.random() * 0.03;
         }
 
         Petal.prototype.draw = function() {
             if (this.y > canvas.height || this.x > canvas.width) {
                 this.x = -this.w;
                 this.y = Math.random() * canvas.height * 2 - canvas.height;
-                this.xSpeed = 1.5 + Math.random() * 2;
-                this.ySpeed = 1 + Math.random() * 1;
-                this.flip = Math.random();
             }
             ctx.globalAlpha = this.opacity;
             ctx.beginPath();
@@ -138,7 +112,6 @@ document.addEventListener('DOMContentLoaded', function() {
         Petal.prototype.update = function() {
             this.x += this.xSpeed;
             this.y += this.ySpeed;
-            this.flip += this.flipSpeed;
             this.draw();
         }
 
@@ -151,9 +124,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         function animate() {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
-            petals.forEach(petal => {
-                petal.update();
-            });
+            petals.forEach(petal => { petal.update(); });
             requestAnimationFrame(animate);
         }
 
