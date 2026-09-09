@@ -84,10 +84,21 @@ html, body {
     
 
 }
-/* Sembunyikan section sebelum dipanggil */
+/* Sembunyikan section di awal */
 .hidden-section {
-    display: none;
+    display: none !important;
 }
+
+/* Memaksa section muncul saat dipanggil JavaScript */
+.show-section {
+    display: block !important;
+}
+
+/* Khusus untuk bagian finale/I love you agar tampilannya rapi */
+#finale-section.show-section {
+    display: flex !important;
+}
+
 /* Memastikan kotak misterius benar-benar nonaktif dan hilang setelah diklik */
 #mystery-box.hidden-box {
     opacity: 0 !important;
