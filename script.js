@@ -13,11 +13,12 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // --- 2. FITUR KOTAK MISTERIUS (KLIK PERTAMA) ---
+    // --- 2. FITUR KOTAK MISTERIUS + PUTAR LAGU (KLIK PERTAMA) ---
     const mysteryBox = document.getElementById('mystery-box');
     const content1 = document.getElementById('hero-content-1');
     const content2 = document.getElementById('hero-content-2');
     const content3 = document.getElementById('hero-content-3');
+    const bgMusic = document.getElementById('bg-music'); // Memanggil elemen audio
 
     if (mysteryBox) {
         mysteryBox.addEventListener('click', function() {
@@ -27,6 +28,13 @@ document.addEventListener('DOMContentLoaded', function() {
             setTimeout(() => {
                 this.style.display = 'none';
             }, 300);
+
+            // PUTAR LAGU OTOMATIS SAAT KOTAK DIKLIK
+            if (bgMusic) {
+                bgMusic.play().catch(error => {
+                    console.log("Autoplay dicegah oleh browser:", error);
+                });
+            }
 
             // Memunculkan konten foto love dan tombol OPEN LETTER
             if (content1) content1.style.opacity = '1';
