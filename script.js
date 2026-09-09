@@ -43,7 +43,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // --- 3. NAVIGASI BERGILIR (SECTION SEBELUMNYA OTOMATIS HILANG) ---
+    // --- 3. NAVIGASI BERGILIR (SLIDE SEBELUMNYA DIJAMIN HILANG) ---
     const headerHero = document.querySelector('header'); // Slide 1 (Foto Love & Kado)
     const btnOpenLetter = document.getElementById('btn-open-letter');
     const letterSection = document.getElementById('letter-section');     // Slide 2 (Surat)
@@ -69,26 +69,32 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // B. Saat tombol NEXT di surat dipencet -> Slide 2 hilang, Slide 3 muncul
+    // B. Saat tombol NEXT di surat dipencet -> Slide 2 DIJAMIN HILANG, Slide 3 muncul
     if (btnNext1 && memoriesSection && letterSection) {
         btnNext1.addEventListener('click', function(e) {
             e.preventDefault();
             
-            letterSection.style.display = 'none';
+            // Sembunyikan Slide 2 secara total menggunakan class
+            letterSection.classList.remove('show-section');
+            letterSection.classList.add('hidden-section');
 
+            // Munculkan Slide 3
             memoriesSection.classList.remove('hidden-section');
             memoriesSection.classList.add('show-section');
             window.scrollTo({ top: 0, behavior: 'smooth' });
         });
     }
 
-    // C. Saat tombol NEXT di memori dipencet -> Slide 3 hilang, Slide 4 muncul
+    // C. Saat tombol NEXT di memori dipencet -> Slide 3 DIJAMIN HILANG, Slide 4 muncul
     if (btnNext2 && finaleSection && memoriesSection) {
         btnNext2.addEventListener('click', function(e) {
             e.preventDefault();
             
-            memoriesSection.style.display = 'none';
+            // Sembunyikan Slide 3 secara total menggunakan class
+            memoriesSection.classList.remove('show-section');
+            memoriesSection.classList.add('hidden-section');
 
+            // Munculkan Slide 4
             finaleSection.classList.remove('hidden-section');
             finaleSection.classList.add('show-section');
             window.scrollTo({ top: 0, behavior: 'smooth' });
