@@ -15,6 +15,9 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // --- 3. Efek Buka Kotak Misterius di Slide Pertama ---
+document.addEventListener('DOMContentLoaded', function() {
+    
+    // --- Efek Buka Kotak Misterius ---
     const mysteryBox = document.getElementById('mystery-box');
     const content1 = document.getElementById('hero-content-1');
     const content2 = document.getElementById('hero-content-2');
@@ -22,25 +25,19 @@ document.addEventListener('DOMContentLoaded', function() {
 
     if (mysteryBox) {
         mysteryBox.addEventListener('click', () => {
-            // Menambahkan class agar kotak memudar dan tidak menghalangi klik di bawahnya
+            // Sembunyikan kotak dan matikan fungsi kliknya secara permanen
             mysteryBox.classList.add('hidden-box');
 
-            // Memunculkan konten foto love dan tombol secara bergiliran
+            // Munculkan isi konten di baliknya
             if (content1) content1.style.opacity = '1';
             setTimeout(() => { if (content2) content2.style.opacity = '1'; }, 300);
             setTimeout(() => { if (content3) content3.style.opacity = '1'; }, 600);
         });
     }
 
-    // --- 4. Tombol Interaktif Bergilir (Open Letter & Next) ---
+    // --- Tombol Open Letter ---
     const btnOpenLetter = document.getElementById('btn-open-letter');
     const letterSection = document.getElementById('letter-section');
-    
-    const btnNext1 = document.getElementById('btn-next-1');
-    const memoriesSection = document.getElementById('memories-section');
-    
-    const btnNext2 = document.getElementById('btn-next-2');
-    const finaleSection = document.getElementById('finale-section');
 
     if (btnOpenLetter && letterSection) {
         btnOpenLetter.addEventListener('click', (e) => {
@@ -50,6 +47,9 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
+    // --- Tombol Next 1 & 2 ---
+    const btnNext1 = document.getElementById('btn-next-1');
+    const memoriesSection = document.getElementById('memories-section');
     if (btnNext1 && memoriesSection) {
         btnNext1.addEventListener('click', (e) => {
             e.preventDefault();
@@ -58,6 +58,8 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
+    const btnNext2 = document.getElementById('btn-next-2');
+    const finaleSection = document.getElementById('finale-section');
     if (btnNext2 && finaleSection) {
         btnNext2.addEventListener('click', (e) => {
             e.preventDefault();
@@ -65,6 +67,7 @@ document.addEventListener('DOMContentLoaded', function() {
             finaleSection.scrollIntoView({ behavior: 'smooth' });
         });
     }
+});
 
     // --- 5. Video Uploader (Opsional) ---
     const videoUploadInput = document.getElementById('video-upload');
