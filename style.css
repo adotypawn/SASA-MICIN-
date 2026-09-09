@@ -88,3 +88,7 @@ html, body {
 .hidden-section {
     display: none;
 }
+/* Sembunyikan section sepenuhnya di awal */
+.hidden-section {
+    display: none !important;
+}
