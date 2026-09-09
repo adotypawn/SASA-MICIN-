@@ -14,7 +14,9 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // --- Efek Buka Kotak Misterius di Slide Pertama ---
+  document.addEventListener('DOMContentLoaded', function() {
+
+    // --- 1. Kotak Misterius ---
     const mysteryBox = document.getElementById('mystery-box');
     const content1 = document.getElementById('hero-content-1');
     const content2 = document.getElementById('hero-content-2');
@@ -22,21 +24,19 @@ document.addEventListener('DOMContentLoaded', function() {
 
     if (mysteryBox) {
         mysteryBox.addEventListener('click', function() {
-            // Kotak langsung disembunyikan dan dimatikan
             this.style.opacity = '0';
             this.style.pointerEvents = 'none';
             setTimeout(() => {
                 this.style.display = 'none';
             }, 500);
 
-            // Memunculkan konten foto love dan tombol OPEN LETTER
             if (content1) content1.style.opacity = '1';
             setTimeout(() => { if (content2) content2.style.opacity = '1'; }, 300);
             setTimeout(() => { if (content3) content3.style.opacity = '1'; }, 600);
         });
     }
 
-    // --- Tombol Interaktif Bergilir (Open Letter & Next) ---
+    // --- 2. Tombol Open Letter & Next (Bergilir) ---
     const btnOpenLetter = document.getElementById('btn-open-letter');
     const letterSection = document.getElementById('letter-section');
     
@@ -49,7 +49,9 @@ document.addEventListener('DOMContentLoaded', function() {
     if (btnOpenLetter && letterSection) {
         btnOpenLetter.addEventListener('click', function(e) {
             e.preventDefault();
-            letterSection.style.display = 'block';
+            // Menghapus hidden-section dan menambahkan show-section
+            letterSection.classList.remove('hidden-section');
+            letterSection.classList.add('show-section');
             letterSection.scrollIntoView({ behavior: 'smooth' });
         });
     }
@@ -57,7 +59,8 @@ document.addEventListener('DOMContentLoaded', function() {
     if (btnNext1 && memoriesSection) {
         btnNext1.addEventListener('click', function(e) {
             e.preventDefault();
-            memoriesSection.style.display = 'block';
+            memoriesSection.classList.remove('hidden-section');
+            memoriesSection.classList.add('show-section');
             memoriesSection.scrollIntoView({ behavior: 'smooth' });
         });
     }
@@ -65,10 +68,13 @@ document.addEventListener('DOMContentLoaded', function() {
     if (btnNext2 && finaleSection) {
         btnNext2.addEventListener('click', function(e) {
             e.preventDefault();
-            finaleSection.style.display = 'flex';
+            finaleSection.classList.remove('hidden-section');
+            finaleSection.classList.add('show-section');
             finaleSection.scrollIntoView({ behavior: 'smooth' });
         });
     }
+});
+
 
     // --- Animasi Kelopak Sakura ---
     const canvas = document.getElementById('sakura-canvas');
