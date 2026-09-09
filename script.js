@@ -14,9 +14,9 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-  document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function() {
 
-    // --- 1. Kotak Misterius ---
+    // --- FITUR 1: KOTAK MISTERIUS (KLIK PERTAMA) ---
     const mysteryBox = document.getElementById('mystery-box');
     const content1 = document.getElementById('hero-content-1');
     const content2 = document.getElementById('hero-content-2');
@@ -24,19 +24,21 @@ document.addEventListener('DOMContentLoaded', function() {
 
     if (mysteryBox) {
         mysteryBox.addEventListener('click', function() {
+            // Kotak dipaksa hilang langsung
             this.style.opacity = '0';
             this.style.pointerEvents = 'none';
             setTimeout(() => {
                 this.style.display = 'none';
-            }, 500);
+            }, 300);
 
+            // Memunculkan konten foto love dan tombol OPEN LETTER
             if (content1) content1.style.opacity = '1';
-            setTimeout(() => { if (content2) content2.style.opacity = '1'; }, 300);
-            setTimeout(() => { if (content3) content3.style.opacity = '1'; }, 600);
+            setTimeout(() => { if (content2) content2.style.opacity = '1'; }, 200);
+            setTimeout(() => { if (content3) content3.style.opacity = '1'; }, 400);
         });
     }
 
-    // --- 2. Tombol Open Letter & Next (Bergilir) ---
+    // --- FITUR 2: TOMBOL OPEN LETTER & NEXT BERGILIR ---
     const btnOpenLetter = document.getElementById('btn-open-letter');
     const letterSection = document.getElementById('letter-section');
     
@@ -49,7 +51,6 @@ document.addEventListener('DOMContentLoaded', function() {
     if (btnOpenLetter && letterSection) {
         btnOpenLetter.addEventListener('click', function(e) {
             e.preventDefault();
-            // Menghapus hidden-section dan menambahkan show-section
             letterSection.classList.remove('hidden-section');
             letterSection.classList.add('show-section');
             letterSection.scrollIntoView({ behavior: 'smooth' });
@@ -73,7 +74,18 @@ document.addEventListener('DOMContentLoaded', function() {
             finaleSection.scrollIntoView({ behavior: 'smooth' });
         });
     }
+
+    // --- FITUR 3: INISIALISASI LAINNYA ---
+    if (typeof AOS !== 'undefined') {
+        AOS.init({ duration: 800, once: true });
+    }
+
+    const galleryEl = document.getElementById('lightgallery');
+    if (galleryEl && typeof lightGallery !== 'undefined') {
+        lightGallery(galleryEl, { speed: 500, download: false });
+    }
 });
+
 
 
     // --- Animasi Kelopak Sakura ---
