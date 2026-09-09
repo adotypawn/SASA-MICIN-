@@ -88,14 +88,14 @@ html, body {
 .hidden-section {
     display: none;
 }
-/* Memastikan kotak misterius benar-benar hilang dari layar saat dibuka */
+/* Memastikan kotak misterius benar-benar nonaktif dan hilang setelah diklik */
 #mystery-box.hidden-box {
-    opacity: 0;
-    pointer-events: none;
-    visibility: hidden;
+    opacity: 0 !important;
+    pointer-events: none !important;
+    visibility: hidden !important;
 }
 
-/* Memastikan semua tombol bisa disentuh/diklik dengan aman */
+/* Memastikan tombol selalu bisa diklik */
 button, a {
     position: relative;
     z-index: 50;
