@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const content1 = document.getElementById('hero-content-1');
     const content2 = document.getElementById('hero-content-2');
     const content3 = document.getElementById('hero-content-3');
-    const bgMusic = document.getElementById('bg-music'); // Memanggil elemen audio
+    const bgMusic = document.getElementById('bg-music');
 
     if (mysteryBox) {
         mysteryBox.addEventListener('click', function() {
@@ -43,40 +43,55 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // --- 3. TOMBOL OPEN LETTER & NEXT BERGILIR ---
+    // --- 3. NAVIGASI BERGILIR (SECTION SEBELUMNYA OTOMATIS HILANG) ---
+    const headerHero = document.querySelector('header'); // Slide 1 (Foto Love & Kado)
     const btnOpenLetter = document.getElementById('btn-open-letter');
-    const letterSection = document.getElementById('letter-section');
+    const letterSection = document.getElementById('letter-section');     // Slide 2 (Surat)
     
     const btnNext1 = document.getElementById('btn-next-1');
-    const memoriesSection = document.getElementById('memories-section');
+    const memoriesSection = document.getElementById('memories-section'); // Slide 3 (Memori)
     
     const btnNext2 = document.getElementById('btn-next-2');
-    const finaleSection = document.getElementById('finale-section');
+    const finaleSection = document.getElementById('finale-section');     // Slide 4 (Finale)
 
+    // A. Saat tombol OPEN LETTER dipencet -> Slide 1 hilang, Slide 2 muncul
     if (btnOpenLetter && letterSection) {
         btnOpenLetter.addEventListener('click', function(e) {
             e.preventDefault();
+            
+            if (headerHero) {
+                headerHero.style.display = 'none';
+            }
+            
             letterSection.classList.remove('hidden-section');
             letterSection.classList.add('show-section');
-            letterSection.scrollIntoView({ behavior: 'smooth' });
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         });
     }
 
-    if (btnNext1 && memoriesSection) {
+    // B. Saat tombol NEXT di surat dipencet -> Slide 2 hilang, Slide 3 muncul
+    if (btnNext1 && memoriesSection && letterSection) {
         btnNext1.addEventListener('click', function(e) {
             e.preventDefault();
+            
+            letterSection.style.display = 'none';
+
             memoriesSection.classList.remove('hidden-section');
             memoriesSection.classList.add('show-section');
-            memoriesSection.scrollIntoView({ behavior: 'smooth' });
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         });
     }
 
-    if (btnNext2 && finaleSection) {
+    // C. Saat tombol NEXT di memori dipencet -> Slide 3 hilang, Slide 4 muncul
+    if (btnNext2 && finaleSection && memoriesSection) {
         btnNext2.addEventListener('click', function(e) {
             e.preventDefault();
+            
+            memoriesSection.style.display = 'none';
+
             finaleSection.classList.remove('hidden-section');
             finaleSection.classList.add('show-section');
-            finaleSection.scrollIntoView({ behavior: 'smooth' });
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         });
     }
 
