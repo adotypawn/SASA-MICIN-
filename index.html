@@ -22,12 +22,17 @@
 
   <header class="h-screen relative flex flex-col items-center justify-between p-6 text-center overflow-hidden">
     
-    <div id="mystery-box" class="absolute inset-0 z-30 flex flex-col items-center justify-center bg-black/80 backdrop-blur-md transition-all duration-700 p-4">
-  
-        <div class="text-2xl mb-4 animate-bounce">🎁</div>
+    <div id="mystery-box" class="absolute inset-0 z-30 flex flex-col items-center justify-center bg-black/80 backdrop-blur-md transition-all duration-700 p-4 cursor-pointer">
+      <div class="border-2 border-pink-400/60 bg-black/60 p-8 rounded-3xl shadow-2xl max-w-sm w-full text-center transition-all hover:scale-105">
+        <div class="text-5xl mb-4 animate-bounce">🎁</div>
         <h3 class="text-xl font-anime text-pink-300 mb-2">A Special Gift For You</h3>
+        <p class="text-sm text-gray-300 mb-6">Sentuh kotak ini untuk membukanya ✨</p>
+        <span class="inline-block bg-pink-500 text-white font-semibold px-6 py-2.5 rounded-full text-sm shadow-lg tracking-wider">
+          BUKA KOTAK
+        </span>
       </div>
     </div>
+
 
     <div class="z-10 pt-8 opacity-0 transition-opacity duration-1000" id="hero-content-1">
       <p class="text-xs md:text-sm tracking-[0.25em] text-pink-300 uppercase font-semibold">Special Gift</p>
