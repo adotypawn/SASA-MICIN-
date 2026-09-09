@@ -91,7 +91,6 @@ html, body {
 /* Memastikan kotak misterius benar-benar nonaktif dan hilang setelah diklik */
 #mystery-box.hidden-box {
     opacity: 0 !important;
-    pointer-events: none !important;
     visibility: hidden !important;
 }
 
@@ -99,7 +98,6 @@ html, body {
 button, a {
     position: relative;
     z-index: 50;
-    pointer-events: auto !important;
 }
 
 .hidden-section {
