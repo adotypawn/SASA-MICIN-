@@ -1,22 +1,19 @@
 document.addEventListener('DOMContentLoaded', function() {
 
-    // --- Inisialisasi AOS (Animate on Scroll) ---
+    // --- 1. INISIALISASI AOS & LIGHTGALLERY ---
     if (typeof AOS !== 'undefined') {
         AOS.init({ duration: 800, once: true });
     }
 
-    // --- Inisialisasi LightGallery ---
-    const lightGalleryElement = document.getElementById('lightgallery');
-    if (lightGalleryElement && typeof lightGallery !== 'undefined') {
-        lightGallery(lightGalleryElement, {
+    const galleryEl = document.getElementById('lightgallery');
+    if (galleryEl && typeof lightGallery !== 'undefined') {
+        lightGallery(galleryEl, {
             speed: 500,
             download: false
         });
     }
 
-document.addEventListener('DOMContentLoaded', function() {
-
-    // --- FITUR 1: KOTAK MISTERIUS (KLIK PERTAMA) ---
+    // --- 2. FITUR KOTAK MISTERIUS (KLIK PERTAMA) ---
     const mysteryBox = document.getElementById('mystery-box');
     const content1 = document.getElementById('hero-content-1');
     const content2 = document.getElementById('hero-content-2');
@@ -38,7 +35,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // --- FITUR 2: TOMBOL OPEN LETTER & NEXT BERGILIR ---
+    // --- 3. TOMBOL OPEN LETTER & NEXT BERGILIR ---
     const btnOpenLetter = document.getElementById('btn-open-letter');
     const letterSection = document.getElementById('letter-section');
     
@@ -75,20 +72,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // --- FITUR 3: INISIALISASI LAINNYA ---
-    if (typeof AOS !== 'undefined') {
-        AOS.init({ duration: 800, once: true });
-    }
-
-    const galleryEl = document.getElementById('lightgallery');
-    if (galleryEl && typeof lightGallery !== 'undefined') {
-        lightGallery(galleryEl, { speed: 500, download: false });
-    }
-});
-
-
-
-    // --- Animasi Kelopak Sakura ---
+    // --- 4. ANIMASI KELOPAK SAKURA ---
     const canvas = document.getElementById('sakura-canvas');
     if (canvas) {
         const ctx = canvas.getContext('2d');
