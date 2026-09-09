@@ -1,14 +1,12 @@
-document.addEventListener('DOMContentLoaded', function() { // Perbaikan: 'document' huruf kecil
+document.addEventListener('DOMContentLoaded', function() {
 
-    // --- Live Age Counter sudah dihapus karena elemen HTML-nya sudah kita hapus ---
-
-    // --- Initialize AOS (Animate on Scroll) ---
+    // --- 1. Inisialisasi AOS (Animate on Scroll) ---
     AOS.init({
         duration: 800,
         once: true,
     });
 
-    // --- Initialize LightGallery ---
+    // --- 2. Inisialisasi LightGallery ---
     if (document.getElementById('lightgallery')) {
         lightGallery(document.getElementById('lightgallery'), {
             speed: 500,
@@ -16,12 +14,64 @@ document.addEventListener('DOMContentLoaded', function() { // Perbaikan: 'docume
         });
     }
 
-    // --- Video Uploader ---
+    // --- 3. Efek Buka Kotak Misterius di Slide Pertama ---
+    const mysteryBox = document.getElementById('mystery-box');
+    const content1 = document.getElementById('hero-content-1');
+    const content2 = document.getElementById('hero-content-2');
+    const content3 = document.getElementById('hero-content-3');
+
+    if (mysteryBox) {
+        mysteryBox.addEventListener('click', () => {
+            // Menambahkan class agar kotak memudar dan tidak menghalangi klik di bawahnya
+            mysteryBox.classList.add('hidden-box');
+
+            // Memunculkan konten foto love dan tombol secara bergiliran
+            if (content1) content1.style.opacity = '1';
+            setTimeout(() => { if (content2) content2.style.opacity = '1'; }, 300);
+            setTimeout(() => { if (content3) content3.style.opacity = '1'; }, 600);
+        });
+    }
+
+    // --- 4. Tombol Interaktif Bergilir (Open Letter & Next) ---
+    const btnOpenLetter = document.getElementById('btn-open-letter');
+    const letterSection = document.getElementById('letter-section');
+    
+    const btnNext1 = document.getElementById('btn-next-1');
+    const memoriesSection = document.getElementById('memories-section');
+    
+    const btnNext2 = document.getElementById('btn-next-2');
+    const finaleSection = document.getElementById('finale-section');
+
+    if (btnOpenLetter && letterSection) {
+        btnOpenLetter.addEventListener('click', (e) => {
+            e.preventDefault();
+            letterSection.style.display = 'block';
+            letterSection.scrollIntoView({ behavior: 'smooth' });
+        });
+    }
+
+    if (btnNext1 && memoriesSection) {
+        btnNext1.addEventListener('click', (e) => {
+            e.preventDefault();
+            memoriesSection.style.display = 'block';
+            memoriesSection.scrollIntoView({ behavior: 'smooth' });
+        });
+    }
+
+    if (btnNext2 && finaleSection) {
+        btnNext2.addEventListener('click', (e) => {
+            e.preventDefault();
+            finaleSection.style.display = 'flex';
+            finaleSection.scrollIntoView({ behavior: 'smooth' });
+        });
+    }
+
+    // --- 5. Video Uploader (Opsional) ---
     const videoUploadInput = document.getElementById('video-upload');
     const videoPlayer = document.getElementById('video-player');
     const videoUploadLabel = document.getElementById('video-upload-label');
 
-    if(videoUploadInput && videoPlayer && videoUploadLabel) {
+    if (videoUploadInput && videoPlayer && videoUploadLabel) {
         videoUploadLabel.addEventListener('click', () => {
             videoUploadInput.click();
         });
@@ -38,7 +88,7 @@ document.addEventListener('DOMContentLoaded', function() { // Perbaikan: 'docume
         });
     }
 
-    // --- Sakura Petal Animation ---
+    // --- 6. Animasi Kelopak Sakura ---
     const canvas = document.getElementById('sakura-canvas');
     if (canvas) {
         const ctx = canvas.getContext('2d');
@@ -108,62 +158,3 @@ document.addEventListener('DOMContentLoaded', function() { // Perbaikan: 'docume
         animate();
     }
 });
-document.addEventListener('DOMContentLoaded', function() {
-    
-    const mysteryBox = document.getElementById('mystery-box');
-    const content1 = document.getElementById('hero-content-1');
-    const content2 = document.getElementById('hero-content-2');
-    const content3 = document.getElementById('hero-content-3');
-
-    // 1. Klik Kotak Misterius
-    if (mysteryBox) {
-        mysteryBox.addEventListener('click', () => {
-            mysteryBox.style.opacity = '0';
-            setTimeout(() => { 
-                mysteryBox.style.display = 'none'; // Kotak benar-benar dihilangkan agar tombol di bawahnya bisa diklik
-            }, 700);
-
-            if (content1) content1.style.opacity = '1';
-            setTimeout(() => { if (content2) content2.style.opacity = '1'; }, 300);
-            setTimeout(() => { if (content3) content3.style.opacity = '1'; }, 600);
-        });
-    }
-
-    // 2. Tombol Open Letter
-    const btnOpenLetter = document.getElementById('btn-open-letter');
-    const letterSection = document.getElementById('letter-section');
-
-    if (btnOpenLetter && letterSection) {
-        btnOpenLetter.addEventListener('click', (e) => {
-            e.preventDefault(); // Mencegah loncatan default link
-            letterSection.style.display = 'block';
-            letterSection.scrollIntoView({ behavior: 'smooth' });
-        });
-    }
-
-    // 3. Tombol Next 1 (Menuju Memories)
-    const btnNext1 = document.getElementById('btn-next-1');
-    const memoriesSection = document.getElementById('memories-section');
-
-    if (btnNext1 && memoriesSection) {
-        btnNext1.addEventListener('click', (e) => {
-            e.preventDefault();
-            memoriesSection.style.display = 'block';
-            memoriesSection.scrollIntoView({ behavior: 'smooth' });
-        });
-    }
-
-    // 4. Tombol Next 2 (Menuju Finale / I Love You)
-    const btnNext2 = document.getElementById('btn-next-2');
-    const finaleSection = document.getElementById('finale-section');
-
-    if (btnNext2 && finaleSection) {
-        btnNext2.addEventListener('click', (e) => {
-            e.preventDefault();
-            finaleSection.style.display = 'flex';
-            finaleSection.scrollIntoView({ behavior: 'smooth' });
-        });
-    }
-});
-
-
