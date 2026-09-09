@@ -188,7 +188,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     if (btnNext2 && finaleSection) {
         btnNext2.addEventListener('click', () => {
-            finaleSection.style.display = 'block';
+            finaleSection.style.display = 'flex';
             finaleSection.scrollIntoView({ behavior: 'smooth' });
         });
     }
