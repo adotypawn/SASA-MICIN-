@@ -53,11 +53,8 @@ document.addEventListener('DOMContentLoaded', function() {
     
     const btnNext2 = document.getElementById('btn-next-2');
     const finaleSection = document.getElementById('finale-section');
-
-   const btnNext3 = document.getElementById('btn-next-3');
-    const headerHero = document.getElementById('header');
   
-    // A. Saat tombol OPEN LETTER dipencet -> Slide 1 hilang, Slide 2 muncul
+  // A. Saat tombol OPEN LETTER dipencet -> Slide 1 hilang, Slide 2 muncul
     if (btnOpenLetter && letterSection) {
         btnOpenLetter.addEventListener('click', function(e) {
             e.preventDefault();
