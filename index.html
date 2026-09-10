@@ -71,38 +71,46 @@
       </div>
     </section>
 
-    <section id="memories-section" class="my-16 md:my-24 max-w-3xl mx-auto text-center hidden-section">
+   <section id="memories-section" class="my-16 md:my-24 max-w-5xl mx-auto text-center hidden-section">
       <h2 class="text-xs md:text-sm tracking-[0.3em] text-pink-400 uppercase font-semibold mb-8">✨ OUR MEMORIES ✨</h2>
       
-      <!-- Perbaikan: Semua foto galeri (1 sampai 4) dimasukkan ke dalam satu wadah id="lightgallery" -->
-      <div class="space-y-8" id="lightgallery">
-        <div class="bg-black/50 border border-white/10 p-4 rounded-2xl shadow-xl backdrop-blur-sm">
-          <a href="img/1.jpeg" class="block w-full h-72 md:h-96 overflow-hidden rounded-lg">
+      <!-- Perubahan: Mengubah wadah menjadi grid responsif (1 kolom di HP, 2 kolom di tablet/PC) -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6" id="lightgallery">
+        <div class="bg-black/50 border border-white/10 p-4 rounded-2xl shadow-xl backdrop-blur-sm flex flex-col justify-between">
+          <a href="img/1.jpeg" class="block w-full h-64 md:h-80 overflow-hidden rounded-lg">
             <img src="img/1.jpeg" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" alt="Memory 1">
           </a>
-          <p class="mt-4 text-sm text-gray-300 font-medium">Have a wonderful day!</p>
-          <p class="text-xs text-pink-400 mt-1">FROM ME ♡</p>
+          <div class="mt-4">
+            <p class="text-sm text-gray-300 font-medium">Have a wonderful day!</p>
+            <p class="text-xs text-pink-400 mt-1">FROM ME ♡</p>
+          </div>
         </div>
 
-        <div class="bg-black/50 border border-white/10 p-4 rounded-2xl shadow-xl backdrop-blur-sm">
-          <a href="img/2.jpeg" class="block w-full h-72 md:h-96 overflow-hidden rounded-lg">
+        <div class="bg-black/50 border border-white/10 p-4 rounded-2xl shadow-xl backdrop-blur-sm flex flex-col justify-between">
+          <a href="img/2.jpeg" class="block w-full h-64 md:h-80 overflow-hidden rounded-lg">
             <img src="img/2.jpeg" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" alt="Memory 2">
           </a>
-          <p class="mt-4 text-sm text-gray-300 font-medium">You're always amazing</p>
+          <div class="mt-4">
+            <p class="text-sm text-gray-300 font-medium">You're always amazing</p>
+          </div>
         </div>
  
-        <div class="bg-black/50 border border-white/10 p-4 rounded-2xl shadow-xl backdrop-blur-sm">
-          <a href="img/3.jpeg" class="block w-full h-72 md:h-96 overflow-hidden rounded-lg">
+        <div class="bg-black/50 border border-white/10 p-4 rounded-2xl shadow-xl backdrop-blur-sm flex flex-col justify-between">
+          <a href="img/3.jpeg" class="block w-full h-64 md:h-80 overflow-hidden rounded-lg">
             <img src="img/3.jpeg" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" alt="Memory 3">
           </a>
-          <p class="mt-4 text-sm text-gray-300 font-medium">You're always amazing</p>
+          <div class="mt-4">
+            <p class="text-sm text-gray-300 font-medium">You're always amazing</p>
+          </div>
         </div>
 
-        <div class="bg-black/50 border border-white/10 p-4 rounded-2xl shadow-xl backdrop-blur-sm">
-          <a href="img/4.jpeg" class="block w-full h-72 md:h-96 overflow-hidden rounded-lg">
+        <div class="bg-black/50 border border-white/10 p-4 rounded-2xl shadow-xl backdrop-blur-sm flex flex-col justify-between">
+          <a href="img/4.jpeg" class="block w-full h-64 md:h-80 overflow-hidden rounded-lg">
             <img src="img/4.jpeg" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" alt="Memory 4">
           </a>
-          <p class="mt-4 text-sm text-gray-300 font-medium">You're always amazing</p>
+          <div class="mt-4">
+            <p class="text-sm text-gray-300 font-medium">You're always amazing</p>
+          </div>
         </div>
       </div>
       
@@ -112,6 +120,7 @@
         </button>
       </div>
     </section>
+
 
     <section id="finale-section" class="h-screen flex flex-col items-center justify-center text-center my-12 hidden-section">
       <div class="border-y-2 border-white/80 py-8 px-12 md:px-24 bg-black/40 backdrop-blur-sm rounded-xl">
