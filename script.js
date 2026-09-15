@@ -20,35 +20,28 @@ document.addEventListener('DOMContentLoaded', function() {
     const content3 = document.getElementById('hero-content-3');
     const bgMusic = document.getElementById('bg-music');
 
-   if (mysteryBox) {
-    mysteryBox.addEventListener('click', function() {
-        // --- 1. PICU EFEK LEDAKAN KONFETI (EFEK A) ---
-        confetti({
-            particleCount: 150, // Jumlah kertas konfeti
-            spread: 80,         // Jangkauan ledakan
-            origin: { y: 0.6 }  // Muncul dari posisi agak bawah layar
+  if (mysteryBox) {
+        mysteryBox.addEventListener('click', function() {
+            // Kotak dipaksa hilang langsung
+            this.style.opacity = '0';
+            this.style.pointerEvents = 'none';
+            setTimeout(() => {
+                this.style.display = 'none';
+            }, 300);
+
+            // PUTAR LAGU OTOMATIS SAAT KOTAK DIKLIK
+            if (bgMusic) {
+                bgMusic.play().catch(error => {
+                    console.log("Autoplay dicegah oleh browser:", error);
+                });
+            }
+
+            // Memunculkan konten foto love dan tombol OPEN LETTER
+            if (content1) content1.style.opacity = '1';
+            setTimeout(() => { if (content2) content2.style.opacity = '1'; }, 200);
+            setTimeout(() => { if (content3) content3.style.opacity = '1'; }, 400);
         });
-
-        // Kotak dipaksa hilang langsung
-        this.style.opacity = '0';
-        this.style.pointerEvents = 'none';
-        setTimeout(() => {
-            this.style.display = 'none';
-        }, 300);
-
-        // PUTAR LAGU OTOMATIS SAAT KOTAK DIKLIK
-        if (bgMusic) {
-            bgMusic.play().catch(error => {
-                console.log("Autoplay dicegah oleh browser:", error);
-            });
-        }
-
-        // Memunculkan konten foto love dan tombol OPEN LETTER
-        if (content1) content1.style.opacity = '1';
-        setTimeout(() => { if (content2) content2.style.opacity = '1'; }, 200);
-        setTimeout(() => { if (content3) content3.style.opacity = '1'; }, 400);
-    });
-}
+  }
 
 
     // --- 3. NAVIGASI BERGILIR (SLIDE SEBELUMNYA DIJAMIN HILANG) ---
