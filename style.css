@@ -12,7 +12,8 @@ html, body {
   /* Gradasi pink transparan ditumpuk di atas foto latar belakang.
      Ganti url('img/bg (1).jpeg') dengan foto latar kamu setelah diupload. */
   background-image:
-      linear-gradient(135deg, rgba(20, 0, 10, 0.85), rgba(80, 20, 50, 0.9));
+      linear-gradient(135deg, rgba(20, 0, 10, 0.85), rgba(80, 20, 50, 0.9)),
+  url('img/bg (1)');
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
