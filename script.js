@@ -1,166 +1,108 @@
-document.addEventListener('DOMContentLoaded', function() {
+:root{
+  --safe-top:env(safe-area-inset-top,0px);
+  --safe-bottom:env(safe-area-inset-bottom,0px);
+  --hot:#ff4fa3;
+  --hot-deep:#e02f85;
+}
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+  font-family: 'Poppins', sans-serif;
 
-    // --- 1. INISIALISASI AOS & LIGHTGALLERY ---
-    if (typeof AOS !== 'undefined') {
-        AOS.init({ duration: 800, once: true });
-    }
+  /* Gradasi pink transparan ditumpuk di atas foto latar belakang.
+     Ganti url('img/bg (1).jpeg') dengan foto latar kamu setelah diupload. */
+  background-image:
+      linear-gradient(135deg, rgba(20, 0, 10, 0.85), rgba(80, 20, 50, 0.9));
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  color: #ffffff;
+}
+body{ padding-bottom:var(--safe-bottom); }
 
-    const galleryEl = document.getElementById('lightgallery');
-    if (galleryEl && typeof lightGallery !== 'undefined') {
-        lightGallery(galleryEl, {
-            speed: 500,
-            download: false
-        });
-    }
+.font-anime{ font-family:'Mochiy Pop One', sans-serif; }
 
-    // --- 2. FITUR KOTAK MISTERIUS + PUTAR LAGU (KLIK PERTAMA) ---
-    const mysteryBox = document.getElementById('mystery-box');
-    const content1 = document.getElementById('hero-content-1');
-    const content2 = document.getElementById('hero-content-2');
-    const content3 = document.getElementById('hero-content-3');
-    const bgMusic = document.getElementById('bg-music');
+.hidden-section{ display:none !important; }
+.show-section{ display:block !important; }
+#finale-section.show-section{ display:flex !important; }
+#player-section.show-section{ display:flex !important; }
+#mystery-box.hidden-box{ opacity:0 !important; visibility:hidden !important; }
 
-  if (mysteryBox) {
-        mysteryBox.addEventListener('click', function() {
-            // Kotak dipaksa hilang langsung
-            this.style.opacity = '0';
-            this.style.pointerEvents = 'none';
-            setTimeout(() => {
-                this.style.display = 'none';
-            }, 300);
+button, a{ position:relative; z-index:50; }
 
-            // PUTAR LAGU OTOMATIS SAAT KOTAK DIKLIK
-            if (bgMusic) {
-                bgMusic.play().catch(error => {
-                    console.log("Autoplay dicegah oleh browser:", error);
-                });
-            }
+.scrollbar-hide::-webkit-scrollbar{ display:none; }
+.scrollbar-hide{ -ms-overflow-style:none; scrollbar-width:none; }
 
-            // Memunculkan konten foto love dan tombol OPEN LETTER
-            if (content1) content1.style.opacity = '1';
-            setTimeout(() => { if (content2) content2.style.opacity = '1'; }, 200);
-            setTimeout(() => { if (content3) content3.style.opacity = '1'; }, 400);
-        });
-  }
+.text-sakura{ color:#FFB7C5; }
 
+#sakura-canvas{
+  position:fixed; top:0; left:0; width:100%; height:100%;
+  z-index:9999; pointer-events:none;
+}
 
-    // --- 3. NAVIGASI BERGILIR (SLIDE SEBELUMNYA DIJAMIN HILANG) ---
-    const headerHero = document.querySelector('header'); // Slide 1 (Foto Love & Kado)
-    const btnOpenLetter = document.getElementById('btn-open-letter');
-    const letterSection = document.getElementById('letter-section');     // Slide 2 (Surat)
-    
-    const btnNext1 = document.getElementById('btn-next-1');
-    const memoriesSection = document.getElementById('memories-section'); // Slide 3 (Memori)
-    
-    const btnNext2 = document.getElementById('btn-next-2');
-    const finaleSection = document.getElementById('finale-section');
-  
-  // A. Saat tombol OPEN LETTER dipencet -> Slide 1 hilang, Slide 2 muncul
-    if (btnOpenLetter && letterSection) {
-        btnOpenLetter.addEventListener('click', function(e) {
-            e.preventDefault();
-            
-            if (headerHero) {
-                headerHero.style.display = 'none';
-            }
-            
-            letterSection.classList.remove('hidden-section');
-            letterSection.classList.add('show-section');
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
-    }
+/* Bentuk hati untuk foto utama (mask SVG, sama seperti style.css asli) */
+.bentuk-love{
+  -webkit-mask-image: url('data:image/svg+xml;charset=UTF-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M462.3 62.6C407.5 15.9 326 24.3 275.7 76.2L256 96.5l-19.7-20.3C186.1 24.3 104.5 15.9 49.7 62.6c-62.8 53.6-66.1 149.8-9.9 207.9l193.5 199.8c12.5 12.9 32.8 12.9 45.3 0l193.5-199.8c56.3-58.1 53-154.3-9.8-207.9z"/></svg>');
+  mask-image: url('data:image/svg+xml;charset=UTF-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M462.3 62.6C407.5 15.9 326 24.3 275.7 76.2L256 96.5l-19.7-20.3C186.1 24.3 104.5 15.9 49.7 62.6c-62.8 53.6-66.1 149.8-9.9 207.9l193.5 199.8c12.5 12.9 32.8 12.9 45.3 0l193.5-199.8c56.3-58.1 53-154.3-9.8-207.9z"/></svg>');
+  -webkit-mask-size: contain;
+  mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-position: center;
+  filter: drop-shadow(0 10px 20px rgba(255, 105, 180, 0.6));
+}
 
-    // B. Saat tombol NEXT di surat dipencet -> Slide 2 DIJAMIN HILANG, Slide 3 muncul
-    if (btnNext1 && memoriesSection && letterSection) {
-        btnNext1.addEventListener('click', function(e) {
-            e.preventDefault();
-            
-            // Sembunyikan Slide 2 secara total menggunakan class
-            letterSection.classList.remove('show-section');
-            letterSection.classList.add('hidden-section');
+/* placeholder photo tiles (swap these with real <img> once photos are uploaded) */
+.placeholder-photo{
+  background:
+    radial-gradient(120% 130% at 20% 10%, #ff9fc7 0%, transparent 55%),
+    linear-gradient(160deg, #ff6fb3 0%, #c23a7a 70%, #6e1a49 100%);
+  display:flex; align-items:center; justify-content:center;
+  color:rgba(255,255,255,0.85); font-size:13px; text-align:center; padding:10px;
+}
 
-            // Munculkan Slide 3
-            memoriesSection.classList.remove('hidden-section');
-            memoriesSection.classList.add('show-section');
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
-    }
+@keyframes spin{ to{ transform:rotate(360deg); } }
 
-    // C. Saat tombol NEXT di memori dipencet -> Slide 3 DIJAMIN HILANG, Slide 4 muncul
-    if (btnNext2 && finaleSection && memoriesSection) {
-        btnNext2.addEventListener('click', function(e) {
-            e.preventDefault();
-            
-            // Sembunyikan Slide 3 secara total menggunakan class
-            memoriesSection.classList.remove('show-section');
-            memoriesSection.classList.add('hidden-section');
+/* ---------- in-slide player (slide sebelum terakhir) ---------- */
+.slide-progress-track{
+  position:relative; height:8px; border-radius:8px; background:rgba(255,255,255,0.18); cursor:pointer; touch-action:none;
+}
+.slide-progress-fill{ position:absolute; inset:0 auto 0 0; width:0%; border-radius:8px; background:linear-gradient(90deg, var(--hot), #ff85bd); }
+.slide-time-row{ display:flex; justify-content:space-between; font-size:11px; color:#e9a9c6; margin-top:6px; font-weight:600; }
+.slide-reel{ transform-origin:center; }
+#slideArt.playing .slide-reel{ animation:spin 2.4s linear infinite; }
+.slide-play-btn{
+  width:56px;height:56px;border-radius:50%; background:linear-gradient(160deg, var(--hot), var(--hot-deep));
+  border:none;display:flex;align-items:center;justify-content:center;cursor:pointer;
+  box-shadow:0 10px 20px -8px rgba(224,47,133,0.6);
+}
+.slide-play-btn svg{ width:22px;height:22px; }
 
-            // Munculkan Slide 4
-            finaleSection.classList.remove('hidden-section');
-            finaleSection.classList.add('show-section');
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
-    }
+/* ---------- animasi saat kotak dipencet ---------- */
+#mystery-box.box-open-anim{
+  animation: box-pop .5s ease forwards;
+}
+@keyframes box-pop{
+  0%{ transform: scale(1) rotate(0deg); opacity:1; }
+  35%{ transform: scale(1.18) rotate(-4deg); opacity:1; }
+  70%{ transform: scale(1.08) rotate(3deg); opacity:.9; }
+  100%{ transform: scale(1.35) rotate(0deg); opacity:0; }
+}
 
-    // --- 4. ANIMASI KELOPAK SAKURA ---
-    const canvas = document.getElementById('sakura-canvas');
-    if (canvas) {
-        const ctx = canvas.getContext('2d');
-        let petals = [];
-        const numPetals = 50;
-
-        function resizeCanvas() {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
-        }
-        window.addEventListener('resize', resizeCanvas);
-        resizeCanvas();
-
-        function Petal() {
-            this.x = Math.random() * canvas.width;
-            this.y = Math.random() * canvas.height * 2 - canvas.height;
-            this.w = 25 + Math.random() * 15;
-            this.h = 20 + Math.random() * 10;
-            this.opacity = this.w / 40;
-            this.xSpeed = 1.5 + Math.random() * 2;
-            this.ySpeed = 1 + Math.random() * 1;
-        }
-
-        Petal.prototype.draw = function() {
-            if (this.y > canvas.height || this.x > canvas.width) {
-                this.x = -this.w;
-                this.y = Math.random() * canvas.height * 2 - canvas.height;
-            }
-            ctx.globalAlpha = this.opacity;
-            ctx.beginPath();
-            ctx.moveTo(this.x, this.y);
-            ctx.bezierCurveTo(this.x + this.w / 2, this.y - this.h / 2, this.x + this.w, this.y, this.x + this.w / 2, this.y + this.h / 2);
-            ctx.bezierCurveTo(this.x, this.y + this.h, this.x - this.w / 2, this.y, this.x, this.y);
-            ctx.closePath();
-            ctx.fillStyle = '#FFB7C5';
-            ctx.fill();
-        }
-
-        Petal.prototype.update = function() {
-            this.x += this.xSpeed;
-            this.y += this.ySpeed;
-            this.draw();
-        }
-
-        function createPetals() {
-            petals = [];
-            for (let i = 0; i < numPetals; i++) {
-                petals.push(new Petal());
-            }
-        }
-
-        function animate() {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-            petals.forEach(petal => { petal.update(); });
-            requestAnimationFrame(animate);
-        }
-
-        createPetals();
-        animate();
-    }
-});
+.burst-particle{
+  position:fixed;
+  left:50%; top:42%;
+  font-size:22px;
+  line-height:1;
+  pointer-events:none;
+  z-index:60;
+  transform: translate(-50%,-50%) scale(.4);
+  animation: burst-fly .9s cubic-bezier(.2,.7,.3,1) forwards;
+  will-change: transform, opacity;
+}
+@keyframes burst-fly{
+  0%{ transform: translate(-50%,-50%) scale(.4); opacity:1; }
+  100%{ transform: translate(calc(-50% + var(--tx)), calc(-50% + var(--ty))) scale(1.15); opacity:0; }
+}
