@@ -12,7 +12,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Mochiy+Pop+One&family=Poppins:wght@400;600&family=Baloo+2:wght@600;700;800&display=swap" rel="stylesheet">
-
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.2/css/lightgallery.min.css">
 <link rel="stylesheet" href="style.css">
 </head>
 <body class="overflow-x-hidden selection:bg-pink-500 selection:text-white">
@@ -179,10 +179,21 @@
 <footer class="bg-black/80 text-gray-400 p-8 text-center text-xs tracking-widest border-t border-white/10 backdrop-blur-sm">
   <p>CREATED WITH ALL MY HEART</p>
 </footer>
-
+  
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    const galleryElement = document.getElementById('lightgallery');
+    if (galleryElement) {
+      lightGallery(galleryElement, {
+        selector: '.lg-item',
+        speed: 500,
+      });
+    }
+  });
+</script>
 <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.1/lightgallery.min.js"></script>
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.2/lightgallery.min.js"></script>
 <script src="script.js"></script>
 </body>
 </html>
