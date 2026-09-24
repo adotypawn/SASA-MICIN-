@@ -84,80 +84,83 @@
             </div>
         </section>
 
-        <section id="memories-section" class="my-16 md:my-24 max-w-5xl mx-auto text-center hidden-section px-4">
-            <h2 class="text-xs md:text-sm tracking-[0.3em] text-pink-400 uppercase font-semibold mb-8">✨ Galery ✨</h2>
+<section id="memories-section" class="my-16 md:my-24 max-w-5xl mx-auto text-center hidden-section px-4">
+    <h2 class="text-xs md:text-sm tracking-[0.3em] text-pink-400 uppercase font-semibold mb-8">✨ Galeri Manis ✨</h2>
 
-            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 md:gap-4" id="lightgallery">
+    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 md:gap-4" id="lightgallery">
 
-                <!-- Foto 1 -->
-                <a href="img/1.jpeg" class="lg-item group relative block aspect-square overflow-hidden rounded-xl shadow-lg">
-                    <img src="img/foto1.jpg" alt="Foto 1" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
-                    <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent p-2 pt-6 text-left">
-                        <p class="text-[10.5px] leading-tight text-white font-medium">
-                            Have a wonderful day! FROM ME ♡
-                        </p>
-                    </div>
-                </a>
-
-                <!-- Foto 2 -->
-                <a href="img/foto2.jpg" class="lg-item group relative block aspect-square overflow-hidden rounded-xl shadow-lg">
-                    <img src="img/foto2.jpg" alt="Foto 2" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
-                    <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent p-2 pt-6 text-left">
-                        <p class="text-[10.5px] leading-tight text-white font-medium">
-                            You're always amazing
-                        </p>
-                    </div>
-                </a>
-
-                <!-- Foto 3 sampai 12 (ubah path href & src sesuai lokasi file gambar Anda) -->
-                <a href="img/foto3.jpg" class="lg-item group relative block aspect-square overflow-hidden rounded-xl shadow-lg">
-                    <img src="img/foto3.jpg" alt="Foto 3" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
-                </a>
-
-                <a href="img/foto4.jpg" class="lg-item group relative block aspect-square overflow-hidden rounded-xl shadow-lg">
-                    <img src="img/foto4.jpg" alt="Foto 4" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
-                </a>
-
-                <a href="img/foto5.jpg" class="lg-item group relative block aspect-square overflow-hidden rounded-xl shadow-lg">
-                    <img src="img/foto5.jpg" alt="Foto 5" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
-                </a>
-
-                <a href="img/foto6.jpg" class="lg-item group relative block aspect-square overflow-hidden rounded-xl shadow-lg">
-                    <img src="img/foto6.jpg" alt="Foto 6" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
-                </a>
-
-                <a href="img/foto7.jpg" class="lg-item group relative block aspect-square overflow-hidden rounded-xl shadow-lg">
-                    <img src="img/foto7.jpg" alt="Foto 7" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
-                </a>
-
-                <a href="img/foto8.jpg" class="lg-item group relative block aspect-square overflow-hidden rounded-xl shadow-lg">
-                    <img src="img/foto8.jpg" alt="Foto 8" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
-                </a>
-
-                <a href="img/foto9.jpg" class="lg-item group relative block aspect-square overflow-hidden rounded-xl shadow-lg">
-                    <img src="img/foto9.jpg" alt="Foto 9" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
-                </a>
-
-                <a href="img/foto10.jpg" class="lg-item group relative block aspect-square overflow-hidden rounded-xl shadow-lg">
-                    <img src="img/foto10.jpg" alt="Foto 10" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
-                </a>
-
-                <a href="img/foto11.jpg" class="lg-item group relative block aspect-square overflow-hidden rounded-xl shadow-lg">
-                    <img src="img/foto11.jpg" alt="Foto 11" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
-                </a>
-
-                <a href="img/foto12.jpg" class="lg-item group relative block aspect-square overflow-hidden rounded-xl shadow-lg">
-                    <img src="img/foto12.jpg" alt="Foto 12" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
-                </a>
-
+        <!-- Foto 1 -->
+        <div onclick="openModal('img/foto1.jpg')" class="lg-item group relative block aspect-square overflow-hidden rounded-2xl shadow-lg border-2 border-pink-200 hover:border-pink-400 transition-all duration-300 hover:shadow-pink-200/50 cursor-pointer">
+            <img src="img/foto1.jpg" alt="Foto 1" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 pointer-events-none">
+            <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-pink-500/80 to-transparent p-2 pt-6 text-left opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <p class="text-[10.5px] leading-tight text-white font-bold">Senyum manis 💖</p>
             </div>
+        </div>
 
-            <div class="mt-12">
-                <button id="btn-next-2" class="inline-flex items-center gap-2 text-xs md:text-sm tracking-widest text-pink-300 hover:text-white uppercase font-semibold transition-colors cursor-pointer bg-transparent border-0">
-                    NEXT →
-                </button>
+        <!-- Foto 2 -->
+        <div onclick="openModal('img/foto2.jpg')" class="lg-item group relative block aspect-square overflow-hidden rounded-2xl shadow-lg border-2 border-pink-200 hover:border-pink-400 transition-all duration-300 hover:shadow-pink-200/50 cursor-pointer">
+            <img src="img/foto2.jpg" alt="Foto 2" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 pointer-events-none">
+            <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-pink-500/80 to-transparent p-2 pt-6 text-left opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <p class="text-[10.5px] leading-tight text-white font-bold">Lucu banget 🥰</p>
             </div>
-        </section>
+        </div>
+
+        <!-- Foto 3 -->
+        <div onclick="openModal('img/foto3.jpg')" class="lg-item group relative block aspect-square overflow-hidden rounded-2xl shadow-lg border-2 border-pink-200 hover:border-pink-400 transition-all duration-300 hover:shadow-pink-200/50 cursor-pointer">
+            <img src="img/foto3.jpg" alt="Foto 3" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 pointer-events-none">
+            <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-pink-500/80 to-transparent p-2 pt-6 text-left opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <p class="text-[10.5px] leading-tight text-white font-bold">Hati berdebar 💗</p>
+            </div>
+        </div>
+
+        <!-- Foto 4 -->
+        <div onclick="openModal('img/foto4.jpg')" class="lg-item group relative block aspect-square overflow-hidden rounded-2xl shadow-lg border-2 border-pink-200 hover:border-pink-400 transition-all duration-300 hover:shadow-pink-200/50 cursor-pointer">
+            <img src="img/foto4.jpg" alt="Foto 4" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 pointer-events-none">
+            <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-pink-500/80 to-transparent p-2 pt-6 text-left opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <p class="text-[10.5px] leading-tight text-white font-bold">Sayang kamu 🌸</p>
+            </div>
+        </div>
+
+        <!-- Foto 5 -->
+        <div onclick="openModal('img/foto5.jpg')" class="lg-item group relative block aspect-square overflow-hidden rounded-2xl shadow-lg border-2 border-pink-200 hover:border-pink-400 transition-all duration-300 hover:shadow-pink-200/50 cursor-pointer">
+            <img src="img/foto5.jpg" alt="Foto 5" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 pointer-events-none">
+            <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-pink-500/80 to-transparent p-2 pt-6 text-left opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <p class="text-[10.5px] leading-tight text-white font-bold">Gemas banget 😍</p>
+            </div>
+        </div>
+
+        <!-- Foto 6 -->
+        <div onclick="openModal('img/foto6.jpg')" class="lg-item group relative block aspect-square overflow-hidden rounded-2xl shadow-lg border-2 border-pink-200 hover:border-pink-400 transition-all duration-300 hover:shadow-pink-200/50 cursor-pointer">
+            <img src="img/foto6.jpg" alt="Foto 6" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 pointer-events-none">
+            <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-pink-500/80 to-transparent p-2 pt-6 text-left opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <p class="text-[10.5px] leading-tight text-white font-bold">Selalu kamu 💌</p>
+            </div>
+        </div>
+
+        <!-- Video 1 -->
+        <div class="group relative block aspect-square overflow-hidden rounded-2xl shadow-lg border-2 border-rose-200 hover:border-rose-400 transition-all duration-300 hover:shadow-rose-200/50 bg-pink-50">
+            <video src="img/video1.mp4" class="w-full h-full object-cover" controls preload="metadata"></video>
+            <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-rose-500/80 to-transparent p-2 pt-6 text-left">
+                <p class="text-[10.5px] leading-tight text-white font-bold">Momen lucu 🎬</p>
+            </div>
+        </div>
+
+        <!-- Video 2 -->
+        <div class="group relative block aspect-square overflow-hidden rounded-2xl shadow-lg border-2 border-rose-200 hover:border-rose-400 transition-all duration-300 hover:shadow-rose-200/50 bg-pink-50">
+            <video src="img/video2.mp4" class="w-full h-full object-cover" controls preload="metadata"></video>
+            <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-rose-500/80 to-transparent p-2 pt-6 text-left">
+                <p class="text-[10.5px] leading-tight text-white font-bold">Kenangan manis 💫</p>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="mt-12">
+        <button id="btn-next-2" class="inline-flex items-center gap-2 text-xs md:text-sm tracking-widest text-pink-300 hover:text-white uppercase font-semibold transition-all duration-300 cursor-pointer bg-transparent border-0 hover:scale-105">
+            NEXT →
+        </button>
+    </div>
+</section>
 
 
         <section id="player-section" class="min-h-screen flex flex-col items-center justify-center my-12 hidden-section px-4">
