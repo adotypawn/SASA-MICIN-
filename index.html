@@ -242,5 +242,33 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.1/lightgallery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.2/lightgallery.min.js"></script>
     <script src="script.js"></script>
+<script>
+function openModal(src) {
+    const modal = document.createElement('div');
+    modal.className = 'modal';
+    modal.style.display = 'flex';
+    modal.style.position = 'fixed';
+    modal.style.top = '0';
+    modal.style.left = '0';
+    modal.style.width = '100%';
+    modal.style.height = '100%';
+    modal.style.background = 'rgba(0,0,0,0.85)';
+    modal.style.justifyContent = 'center';
+    modal.style.alignItems = 'center';
+    modal.style.zIndex = '9999';
+    modal.onclick = function() { modal.remove(); };
+    
+    const img = document.createElement('img');
+    img.src = src;
+    img.className = 'modal-content';
+    img.style.maxWidth = '90%';
+    img.style.maxHeight = '90vh';
+    img.style.borderRadius = '12px';
+    img.style.boxShadow = '0 0 30px rgba(255,182,193,0.4)';
+    
+    modal.appendChild(img);
+    document.body.appendChild(modal);
+}
+</script>
 </body>
 </html>
