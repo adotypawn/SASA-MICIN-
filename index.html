@@ -1,217 +1,243 @@
 <!DOCTYPE html>
 <html lang="id" class="scroll-smooth">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>Special Gift For You</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Special Gift For You</title>
 
-<script src="https://cdn.tailwindcss.com"></script>
-<link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.1/css/lightgallery.min.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.1/css/lightgallery.min.css" />
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Mochiy+Pop+One&family=Poppins:wght@400;600&family=Baloo+2:wght@600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.2/css/lightgallery.min.css">
-<link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Mochiy+Pop+One&family=Poppins:wght@400;600&family=Baloo+2:wght@600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.2/css/lightgallery.min.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body class="overflow-x-hidden selection:bg-pink-500 selection:text-white">
 
-<audio id="bg-music" loop>
-  <source src="cc.mp3" type="audio/mp3">
-  Browser kamu tidak mendukung pemutar audio.
-</audio>
+    <audio id="bg-music" loop>
+        <source src="cc.mp3" type="audio/mp3">
+        Browser kamu tidak mendukung pemutar audio.
+    </audio>
 
-<canvas id="sakura-canvas"></canvas>
+    <canvas id="sakura-canvas"></canvas>
 
-<header class="h-screen relative flex flex-col items-center justify-between p-6 text-center overflow-hidden">
+    <header class="h-screen relative flex flex-col items-center justify-between p-6 text-center overflow-hidden">
 
-  <div id="mystery-box" class="absolute inset-0 z-30 flex flex-col items-center justify-center bg-black/80 backdrop-blur-md transition-all duration-700 p-4 cursor-pointer">
-    <div class="text-9xl mb-4 animate-bounce">🎁</div>
-    <h3 class="text-xl font-anime text-pink-300 mb-2">A Special Gift For You</h3>
-  </div>
-
-  <div class="z-10 pt-8 opacity-0 transition-opacity duration-1000" id="hero-content-1">
-    <p class="text-xs md:text-sm tracking-[0.25em] text-pink-300 uppercase font-semibold">Special Gift</p>
-    <h2 class="text-sm md:text-base tracking-widest text-gray-200 mt-1">TO SOMEONE SPECIAL✨</h2>
-  </div>
-
-  <div class="z-10 my-auto flex flex-col items-center opacity-0 transition-opacity duration-1000" id="hero-content-2">
-    <img src="img/fotoutama.jpeg" class="w-52 h-52 md:w-64 md:h-64 bentuk-love shadow-2xl mb-6 placeholder-photo">
-    <h1 class="text-3xl md:text-5xl font-anime drop-shadow-lg text-white">Happy Legal Day, Nama!</h1>
-  </div>
-
-  <div class="z-10 pb-12 opacity-0 transition-opacity duration-1000" id="hero-content-3">
-    <button id="btn-open-letter" class="inline-flex items-center gap-2 border border-pink-400/50 bg-black/40 hover:bg-pink-500/20 text-pink-200 px-6 py-3 rounded-full text-sm font-semibold tracking-wider transition-all duration-300 backdrop-blur-md shadow-lg cursor-pointer">
-      OPEN LETTER
-      <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-      </svg>
-    </button>
-  </div>
-</header>
-
-<main class="container mx-auto p-4 md:p-12 relative z-10">
-
-  <section id="letter-section" class="my-16 md:my-24 max-w-2xl mx-auto hidden-section px-4">
-    <div class="bg-black/60 border border-pink-500/30 text-gray-200 p-6 md:p-8 rounded-2xl shadow-2xl backdrop-blur-md flex flex-col max-h-[80vh]">
-      <div class="overflow-y-auto space-y-4 pr-2">
-        <p class="text-pink-300 font-semibold mb-2">Hey [Nama],</p>
-        <p class="leading-relaxed text-sm md:text-base">First of all, thank you for simply existing and being such a remarkably strong person. I am endlessly proud of you. Watching you chase your dreams and fight your own silent battles with so much grace has been truly inspiring.</p>
-        <p class="leading-relaxed text-sm md:text-base">You always find a way to stay true to your path, holding on even when deep down inside, you are exhausted. Please know that it's okay to rest when you need to, but never forget how resilient you truly are.</p>
-        <p class="leading-relaxed text-sm md:text-base">I deeply believe that one day, you will look back at all these moments and smile—not because it was easy, but because you made it through every single storm and came out stronger on the other side.</p>
-        <p class="leading-relaxed text-sm md:text-base font-medium text-pink-200 pt-2">Never forget to appreciate how far you've come. Keep walking forward with a gentle and happy heart, and may your days ahead be wrapped in soft blessings and quiet joys. Keep shining, beautiful soul... ✨</p>
-      </div>
-      <div class="pt-6 text-center shrink-0 border-t border-pink-500/10 mt-4">
-        <button id="btn-next-1" class="inline-flex items-center gap-2 text-xs md:text-sm tracking-widest text-pink-300 hover:text-white uppercase font-semibold transition-colors cursor-pointer bg-transparent border-0">
-          NEXT →
-        </button>
-      </div>
-    </div>
-  </section>
-
-  <section id="memories-section" class="my-16 md:my-24 max-w-5xl mx-auto text-center hidden-section px-4">
-    <h2 class="text-xs md:text-sm tracking-[0.3em] text-pink-400 uppercase font-semibold mb-8">✨ Galery ✨</h2>
-    
-    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 md:gap-4" id="lightgallery">
-      
-      <!-- Foto 1 -->
-      <a href="img/foto1.jpg" class="lg-item group relative block aspect-square overflow-hidden rounded-xl shadow-lg">
-        <img src="img/foto1.jpg" alt="Foto 1" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
-        <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent p-2 pt-6 text-left">
-          <p class="text-[10.5px] leading-tight text-white font-medium">Have a wonderful day! FROM ME ♡</p>
+        <div id="mystery-box" class="absolute inset-0 z-30 flex flex-col items-center justify-center bg-black/80 backdrop-blur-md transition-all duration-700 p-4 cursor-pointer">
+            <div class="text-9xl mb-4 animate-bounce">
+                🎁
+            </div>
+            <h3 class="text-xl font-anime text-pink-300 mb-2">A Special Gift For You</h3>
         </div>
-      </a>
 
-      <!-- Foto 2 -->
-      <a href="img/foto2.jpg" class="lg-item group relative block aspect-square overflow-hidden rounded-xl shadow-lg">
-        <img src="img/foto2.jpg" alt="Foto 2" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
-        <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent p-2 pt-6 text-left">
-          <p class="text-[10.5px] leading-tight text-white font-medium">You're always amazing</p>
+        <div class="z-10 pt-8 opacity-0 transition-opacity duration-1000" id="hero-content-1">
+            <p class="text-xs md:text-sm tracking-[0.25em] text-pink-300 uppercase font-semibold">
+                Special Gift
+            </p>
+            <h2 class="text-sm md:text-base tracking-widest text-gray-200 mt-1">TO SOMEONE SPECIAL✨</h2>
         </div>
-      </a>
 
-      <!-- Foto 3 sampai 12 (ubah path href & src sesuai lokasi file gambar Anda) -->
-      <a href="img/foto3.jpg" class="lg-item group relative block aspect-square overflow-hidden rounded-xl shadow-lg">
-        <img src="img/foto3.jpg" alt="Foto 3" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
-      </a>
-      
-      <a href="img/foto4.jpg" class="lg-item group relative block aspect-square overflow-hidden rounded-xl shadow-lg">
-        <img src="img/foto4.jpg" alt="Foto 4" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
-      </a>
-      
-      <a href="img/foto5.jpg" class="lg-item group relative block aspect-square overflow-hidden rounded-xl shadow-lg">
-        <img src="img/foto5.jpg" alt="Foto 5" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
-      </a>
-      
-      <a href="img/foto6.jpg" class="lg-item group relative block aspect-square overflow-hidden rounded-xl shadow-lg">
-        <img src="img/foto6.jpg" alt="Foto 6" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
-      </a>
-      
-      <a href="img/foto7.jpg" class="lg-item group relative block aspect-square overflow-hidden rounded-xl shadow-lg">
-        <img src="img/foto7.jpg" alt="Foto 7" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
-      </a>
-      
-      <a href="img/foto8.jpg" class="lg-item group relative block aspect-square overflow-hidden rounded-xl shadow-lg">
-        <img src="img/foto8.jpg" alt="Foto 8" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
-      </a>
-      
-      <a href="img/foto9.jpg" class="lg-item group relative block aspect-square overflow-hidden rounded-xl shadow-lg">
-        <img src="img/foto9.jpg" alt="Foto 9" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
-      </a>
-      
-      <a href="img/foto10.jpg" class="lg-item group relative block aspect-square overflow-hidden rounded-xl shadow-lg">
-        <img src="img/foto10.jpg" alt="Foto 10" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
-      </a>
-      
-      <a href="img/foto11.jpg" class="lg-item group relative block aspect-square overflow-hidden rounded-xl shadow-lg">
-        <img src="img/foto11.jpg" alt="Foto 11" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
-      </a>
-      
-      <a href="img/foto12.jpg" class="lg-item group relative block aspect-square overflow-hidden rounded-xl shadow-lg">
-        <img src="img/foto12.jpg" alt="Foto 12" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
-      </a>
-
-    </div>
-
-    <div class="mt-12">
-      <button id="btn-next-2" class="inline-flex items-center gap-2 text-xs md:text-sm tracking-widest text-pink-300 hover:text-white uppercase font-semibold transition-colors cursor-pointer bg-transparent border-0">
-        NEXT →
-      </button>
-    </div>
-</section>
-
-
-  <section id="player-section" class="min-h-screen flex flex-col items-center justify-center my-12 hidden-section px-4">
-    <div class="bg-black/60 border border-pink-500/30 text-gray-200 p-6 md:p-8 rounded-2xl shadow-2xl backdrop-blur-md flex flex-col items-center w-full max-w-sm">
-      <h2 class="text-xs md:text-sm tracking-[0.3em] text-pink-400 uppercase font-semibold mb-6">✨ Our Song ✨</h2>
-
-      <!--
-        Foto/cover lagu di slide ini.
-        Untuk pasang foto sendiri, ganti div di bawah ini dengan:
-        <img src="cover-lagu.jpg" alt="Cover lagu" id="slideArt" class="w-48 h-48 md:w-56 md:h-56 rounded-3xl mb-6 object-cover shadow-xl">
-      -->
-      <img src="img/1.jpeg" alt="Cover lagu" id="slideArt" class="w-48 h-48 md:w-56 md:h-56 rounded-3xl mb-6 object-cover shadow-xl">
-
-
-      <p class="font-anime text-xl md:text-2xl text-white mb-1 text-center">Semua Aku Dirayakan</p>
-      <p class="text-sm text-pink-300 mb-6">Nadin Amizah</p>
-
-      <div class="w-full">
-        <div class="slide-progress-track" id="slideProgressTrack">
-          <div class="slide-progress-fill" id="slideProgressFill"></div>
+        <div class="z-10 my-auto flex flex-col items-center opacity-0 transition-opacity duration-1000" id="hero-content-2">
+            <img src="img/fotoutama.jpeg" class="w-52 h-52 md:w-64 md:h-64 bentuk-love shadow-2xl mb-6 placeholder-photo">
+            <h1 class="text-3xl md:text-5xl font-anime drop-shadow-lg text-white">Happy Legal Day, Nama!</h1>
         </div>
-        <div class="slide-time-row">
-          <span id="slideCurTime">0:00</span>
-          <span id="slideDurTime">5:17</span>
+
+        <div class="z-10 pb-12 opacity-0 transition-opacity duration-1000" id="hero-content-3">
+            <button id="btn-open-letter" class="inline-flex items-center gap-2 border border-pink-400/50 bg-black/40 hover:bg-pink-500/20 text-pink-200 px-6 py-3 rounded-full text-sm font-semibold tracking-wider transition-all duration-300 backdrop-blur-md shadow-lg cursor-pointer">
+                OPEN LETTER
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                </svg>
+            </button>
         </div>
-      </div>
+    </header>
 
-      <button id="slidePlayBtn" class="slide-play-btn mt-6" aria-label="Putar">
-        <svg id="slidePlayIcon" viewBox="0 0 24 24" fill="#fff"><path d="M8 5.5v13l11-6.5z"/></svg>
-      </button>
+    <main class="container mx-auto p-4 md:p-12 relative z-10">
 
-      <button id="btn-next-3" class="mt-10 inline-flex items-center gap-2 border border-pink-400/50 text-xs md:text-sm tracking-widest text-pink-300 hover:text-white uppercase font-semibold transition-colors cursor-pointer bg-transparent border-0">
-        NEXT →
-      </button>
-    </div>
-  </section>
+        <section id="letter-section" class="my-16 md:my-24 max-w-2xl mx-auto hidden-section px-4">
+            <div class="bg-black/60 border border-pink-500/30 text-gray-200 p-6 md:p-8 rounded-2xl shadow-2xl backdrop-blur-md flex flex-col max-h-[80vh]">
+                <div class="overflow-y-auto space-y-4 pr-2">
+                    <p class="text-pink-300 font-semibold mb-2">
+                        Hey [Nama],
+                    </p>
+                    <p class="leading-relaxed text-sm md:text-base">
+                        First of all, thank you for simply existing and being such a remarkably strong person. I am endlessly proud of you. Watching you chase your dreams and fight your own silent battles with so much grace has been truly inspiring.
+                    </p>
+                    <p class="leading-relaxed text-sm md:text-base">
+                        You always find a way to stay true to your path, holding on even when deep down inside, you are exhausted. Please know that it's okay to rest when you need to, but never forget how resilient you truly are.
+                    </p>
+                    <p class="leading-relaxed text-sm md:text-base">
+                        I deeply believe that one day, you will look back at all these moments and smile—not because it was easy, but because you made it through every single storm and came out stronger on the other side.
+                    </p>
+                    <p class="leading-relaxed text-sm md:text-base font-medium text-pink-200 pt-2">
+                        Never forget to appreciate how far you've come. Keep walking forward with a gentle and happy heart, and may your days ahead be wrapped in soft blessings and quiet joys. Keep shining, beautiful soul... ✨
+                    </p>
+                </div>
+                <div class="pt-6 text-center shrink-0 border-t border-pink-500/10 mt-4">
+                    <button id="btn-next-1" class="inline-flex items-center gap-2 text-xs md:text-sm tracking-widest text-pink-300 hover:text-white uppercase font-semibold transition-colors cursor-pointer bg-transparent border-0">
+                        NEXT →
+                    </button>
+                </div>
+            </div>
+        </section>
 
-  <section id="finale-section" class="h-screen flex flex-col items-center justify-center text-center my-12 hidden-section">
-    <div class="border-y-2 border-white/80 py-8 px-12 md:px-24 bg-black/40 backdrop-blur-sm rounded-xl">
-      <h2 class="text-4xl md:text-7xl font-anime tracking-wider text-white">
-        I <span class="text-pink-500">❤️</span> YOU
-      </h2>
-    </div>
-    <p class="mt-8 text-sm text-gray-300 tracking-widest font-medium">You make me show my best smile.</p>
-    <button id="btn-restart" class="mt-10 inline-flex items-center gap-2 border border-pink-400/50 bg-black/40 hover:bg-pink-500/20 text-pink-200 px-6 py-3 rounded-full text-sm font-semibold tracking-wider transition-all duration-300 backdrop-blur-md shadow-lg cursor-pointer">
-      <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h5M20 20v-5h-5M5.6 9A8 8 0 0119 9M18.4 15a8 8 0 01-13.4 0" />
-      </svg>
-      KEMBALI KE AWAL
-    </button>
-  </section>
+        <section id="memories-section" class="my-16 md:my-24 max-w-5xl mx-auto text-center hidden-section px-4">
+            <h2 class="text-xs md:text-sm tracking-[0.3em] text-pink-400 uppercase font-semibold mb-8">✨ Galery ✨</h2>
 
-</main>
+            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 md:gap-4" id="lightgallery">
 
-<footer class="bg-black/80 text-gray-400 p-8 text-center text-xs tracking-widest border-t border-white/10 backdrop-blur-sm">
-  <p>CREATED WITH ALL MY HEART</p>
-</footer>
-  
-<script>
-  document.addEventListener("DOMContentLoaded", function() {
-    const galleryElement = document.getElementById('lightgallery');
-    if (galleryElement) {
-      lightGallery(galleryElement, {
-        selector: '.lg-item',
-        speed: 500,
-      });
-    }
-  });
-</script>
-<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.1/lightgallery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.2/lightgallery.min.js"></script>
-<script src="script.js"></script>
+                <!-- Foto 1 -->
+                <a href="img/foto1.jpg" class="lg-item group relative block aspect-square overflow-hidden rounded-xl shadow-lg">
+                    <img src="img/foto1.jpg" alt="Foto 1" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                    <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent p-2 pt-6 text-left">
+                        <p class="text-[10.5px] leading-tight text-white font-medium">
+                            Have a wonderful day! FROM ME ♡
+                        </p>
+                    </div>
+                </a>
+
+                <!-- Foto 2 -->
+                <a href="img/foto2.jpg" class="lg-item group relative block aspect-square overflow-hidden rounded-xl shadow-lg">
+                    <img src="img/foto2.jpg" alt="Foto 2" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                    <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent p-2 pt-6 text-left">
+                        <p class="text-[10.5px] leading-tight text-white font-medium">
+                            You're always amazing
+                        </p>
+                    </div>
+                </a>
+
+                <!-- Foto 3 sampai 12 (ubah path href & src sesuai lokasi file gambar Anda) -->
+                <a href="img/foto3.jpg" class="lg-item group relative block aspect-square overflow-hidden rounded-xl shadow-lg">
+                    <img src="img/foto3.jpg" alt="Foto 3" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                </a>
+
+                <a href="img/foto4.jpg" class="lg-item group relative block aspect-square overflow-hidden rounded-xl shadow-lg">
+                    <img src="img/foto4.jpg" alt="Foto 4" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                </a>
+
+                <a href="img/foto5.jpg" class="lg-item group relative block aspect-square overflow-hidden rounded-xl shadow-lg">
+                    <img src="img/foto5.jpg" alt="Foto 5" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                </a>
+
+                <a href="img/foto6.jpg" class="lg-item group relative block aspect-square overflow-hidden rounded-xl shadow-lg">
+                    <img src="img/foto6.jpg" alt="Foto 6" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                </a>
+
+                <a href="img/foto7.jpg" class="lg-item group relative block aspect-square overflow-hidden rounded-xl shadow-lg">
+                    <img src="img/foto7.jpg" alt="Foto 7" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                </a>
+
+                <a href="img/foto8.jpg" class="lg-item group relative block aspect-square overflow-hidden rounded-xl shadow-lg">
+                    <img src="img/foto8.jpg" alt="Foto 8" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                </a>
+
+                <a href="img/foto9.jpg" class="lg-item group relative block aspect-square overflow-hidden rounded-xl shadow-lg">
+                    <img src="img/foto9.jpg" alt="Foto 9" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                </a>
+
+                <a href="img/foto10.jpg" class="lg-item group relative block aspect-square overflow-hidden rounded-xl shadow-lg">
+                    <img src="img/foto10.jpg" alt="Foto 10" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                </a>
+
+                <a href="img/foto11.jpg" class="lg-item group relative block aspect-square overflow-hidden rounded-xl shadow-lg">
+                    <img src="img/foto11.jpg" alt="Foto 11" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                </a>
+
+                <a href="img/foto12.jpg" class="lg-item group relative block aspect-square overflow-hidden rounded-xl shadow-lg">
+                    <img src="img/foto12.jpg" alt="Foto 12" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                </a>
+
+            </div>
+
+            <div class="mt-12">
+                <button id="btn-next-2" class="inline-flex items-center gap-2 text-xs md:text-sm tracking-widest text-pink-300 hover:text-white uppercase font-semibold transition-colors cursor-pointer bg-transparent border-0">
+                    NEXT →
+                </button>
+            </div>
+        </section>
+
+
+        <section id="player-section" class="min-h-screen flex flex-col items-center justify-center my-12 hidden-section px-4">
+            <div class="bg-black/60 border border-pink-500/30 text-gray-200 p-6 md:p-8 rounded-2xl shadow-2xl backdrop-blur-md flex flex-col items-center w-full max-w-sm">
+                <h2 class="text-xs md:text-sm tracking-[0.3em] text-pink-400 uppercase font-semibold mb-6">✨ Our Song ✨</h2>
+
+                <!--
+                                        Foto/cover lagu di slide ini.
+                                        Untuk pasang foto sendiri, ganti div di bawah ini dengan:
+                                        <img src="cover-lagu.jpg" alt="Cover lagu" id="slideArt" class="w-48 h-48 md:w-56 md:h-56 rounded-3xl mb-6 object-cover shadow-xl">
+                                      -->
+                <img src="img/1.jpeg" alt="Cover lagu" id="slideArt" class="w-48 h-48 md:w-56 md:h-56 rounded-3xl mb-6 object-cover shadow-xl">
+
+
+                <p class="font-anime text-xl md:text-2xl text-white mb-1 text-center">
+                    Semua Aku Dirayakan
+                </p>
+                <p class="text-sm text-pink-300 mb-6">
+                    Nadin Amizah
+                </p>
+
+                <div class="w-full">
+                    <div class="slide-progress-track" id="slideProgressTrack">
+                        <div class="slide-progress-fill" id="slideProgressFill"></div>
+                    </div>
+                    <div class="slide-time-row">
+                        <span id="slideCurTime">0:00</span>
+                        <span id="slideDurTime">5:17</span>
+                    </div>
+                </div>
+
+                <button id="slidePlayBtn" class="slide-play-btn mt-6" aria-label="Putar">
+                    <svg id="slidePlayIcon" viewBox="0 0 24 24" fill="#fff"><path d="M8 5.5v13l11-6.5z" /></svg>
+                </button>
+
+                <button id="btn-next-3" class="mt-10 inline-flex items-center gap-2 border border-pink-400/50 text-xs md:text-sm tracking-widest text-pink-300 hover:text-white uppercase font-semibold transition-colors cursor-pointer bg-transparent border-0">
+                    NEXT →
+                </button>
+            </div>
+        </section>
+
+        <section id="finale-section" class="h-screen flex flex-col items-center justify-center text-center my-12 hidden-section">
+            <div class="border-y-2 border-white/80 py-8 px-12 md:px-24 bg-black/40 backdrop-blur-sm rounded-xl">
+                <h2 class="text-4xl md:text-7xl font-anime tracking-wider text-white">
+                    I <span class="text-pink-500">❤️</span> YOU
+                </h2>
+            </div>
+            <p class="mt-8 text-sm text-gray-300 tracking-widest font-medium">
+                You make me show my best smile.
+            </p>
+            <button id="btn-restart" class="mt-10 inline-flex items-center gap-2 border border-pink-400/50 bg-black/40 hover:bg-pink-500/20 text-pink-200 px-6 py-3 rounded-full text-sm font-semibold tracking-wider transition-all duration-300 backdrop-blur-md shadow-lg cursor-pointer">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h5M20 20v-5h-5M5.6 9A8 8 0 0119 9M18.4 15a8 8 0 01-13.4 0" />
+                </svg>
+                KEMBALI KE AWAL
+            </button>
+        </section>
+
+    </main>
+
+    <footer class="bg-black/80 text-gray-400 p-8 text-center text-xs tracking-widest border-t border-white/10 backdrop-blur-sm">
+        <p>
+            CREATED WITH HEART💖
+        </p>
+    </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const galleryElement = document.getElementById('lightgallery');
+            if (galleryElement) {
+                lightGallery(galleryElement, {
+                    selector: '.lg-item',
+                    speed: 500,
+                });
+            }
+        });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.1/lightgallery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.2/lightgallery.min.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
