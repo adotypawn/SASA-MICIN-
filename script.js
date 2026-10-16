@@ -1,5 +1,8 @@
 document.addEventListener('DOMContentLoaded', function() {
 
+    // --- 0. INISIALISASI ELEMEN GLOBAL ---
+    const bgMusic = document.getElementById('bg-music');
+
     // --- 1. INISIALISASI AOS & LIGHTGALLERY ---
     if (typeof AOS !== 'undefined') {
         AOS.init({ duration: 800, once: true });
@@ -19,7 +22,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const content1 = document.getElementById('hero-content-1');
     const content2 = document.getElementById('hero-content-2');
     const content3 = document.getElementById('hero-content-3');
-    const bgMusic = document.getElementById('bg-music');
 
     // --- animasi burst hati/sparkle saat kotak dibuka ---
     function spawnBurst() {
@@ -124,7 +126,6 @@ document.addEventListener('DOMContentLoaded', function() {
         btnRestart.addEventListener('click', function(e) {
             e.preventDefault();
 
-            // sembunyikan semua section lanjutan
             [letterSection, memoriesSection, playerSection, finaleSection].forEach(function(sec) {
                 if (sec) {
                     sec.classList.remove('show-section');
@@ -132,7 +133,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             });
 
-            // tampilkan kembali header (hero) awal
             if (headerHero) headerHero.style.display = '';
 
             window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -199,11 +199,7 @@ document.addEventListener('DOMContentLoaded', function() {
         animate();
     }
 
-// --- 5. PEMUTAR MUSIK PINK (di dalam slide "Our Song") ---
-    // Ambil elemen audio asli
-    const bgMusic = document.getElementById('bg-music');
-    
-    // elemen pemutar di slide "Our Song"
+    // --- 5. PEMUTAR MUSIK PINK (di dalam slide "Our Song") ---
     const slideArt = document.getElementById('slideArt');
     const slidePlayBtn = document.getElementById('slidePlayBtn');
     const slidePlayIcon = document.getElementById('slidePlayIcon');
@@ -215,7 +211,6 @@ document.addEventListener('DOMContentLoaded', function() {
     function fmt(s){ s = Math.max(0, Math.floor(s)); const m = Math.floor(s/60), r = s%60; return m + ':' + (r<10?'0':'') + r; }
 
     function renderPlayer(){
-      // Gunakan durasi asli dari file audio jika sudah siap, fallback ke 0
       const duration = bgMusic && !isNaN(bgMusic.duration) ? bgMusic.duration : 0;
       const current = bgMusic ? bgMusic.currentTime : 0;
       
@@ -225,7 +220,8 @@ document.addEventListener('DOMContentLoaded', function() {
       if (slideDur) slideDur.textContent = fmt(duration);
     }
 
-    function setPlaying(v){
+    // Ubah fungsi setPlaying menjadi global di dalam scope DOMContentLoaded agar bisa diakses dari kotak misterius
+    window.setPlaying = function(v){
       if (!bgMusic) return;
       
       if(v){
@@ -244,7 +240,6 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     }
 
-    // Update tampilan setiap kali waktu audio berjalan
     if (bgMusic) {
       bgMusic.addEventListener('timeupdate', renderPlayer);
       bgMusic.addEventListener('loadedmetadata', renderPlayer);
@@ -254,7 +249,6 @@ document.addEventListener('DOMContentLoaded', function() {
       });
     }
 
-    // Fitur Geser / Seek Progress Bar
     function seekFromEvent(track, e){
       if (!bgMusic || isNaN(bgMusic.duration)) return;
       const rect = track.getBoundingClientRect();
@@ -271,7 +265,6 @@ document.addEventListener('DOMContentLoaded', function() {
       window.addEventListener('pointerup', () => { dragging = false; });
     }
 
-    // Tombol play di slide "Our Song"
     if (slidePlayBtn) {
       slidePlayBtn.addEventListener('click', () => {
         const isPlaying = !bgMusic.paused;
@@ -281,4 +274,3 @@ document.addEventListener('DOMContentLoaded', function() {
 
     renderPlayer();
 });
-                        
