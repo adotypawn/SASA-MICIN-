@@ -199,11 +199,11 @@ document.addEventListener('DOMContentLoaded', function() {
         animate();
     }
 
-    // --- 5. PEMUTAR MUSIK PINK (di dalam slide "Our Song") ---
-    const DURATION = 252; // 4:12
-    let current = 0, playing = false, timer = null, startTimestamp = 0;
-
-    // elemen pemutar di slide "Our Song" (slide sebelum terakhir)
+// --- 5. PEMUTAR MUSIK PINK (di dalam slide "Our Song") ---
+    // Ambil elemen audio asli
+    const bgMusic = document.getElementById('bg-music');
+    
+    // elemen pemutar di slide "Our Song"
     const slideArt = document.getElementById('slideArt');
     const slidePlayBtn = document.getElementById('slidePlayBtn');
     const slidePlayIcon = document.getElementById('slidePlayIcon');
@@ -215,43 +215,55 @@ document.addEventListener('DOMContentLoaded', function() {
     function fmt(s){ s = Math.max(0, Math.floor(s)); const m = Math.floor(s/60), r = s%60; return m + ':' + (r<10?'0':'') + r; }
 
     function renderPlayer(){
-      const pct = (current/DURATION)*100;
+      // Gunakan durasi asli dari file audio jika sudah siap, fallback ke 0
+      const duration = bgMusic && !isNaN(bgMusic.duration) ? bgMusic.duration : 0;
+      const current = bgMusic ? bgMusic.currentTime : 0;
+      
+      const pct = duration > 0 ? (current / duration) * 100 : 0;
       if (slideFill) slideFill.style.width = pct + '%';
       if (slideCur) slideCur.textContent = fmt(current);
-      if (slideDur) slideDur.textContent = fmt(DURATION);
+      if (slideDur) slideDur.textContent = fmt(duration);
     }
 
     function setPlaying(v){
-      playing = v;
-      if (slideArt) slideArt.classList.toggle('playing', v);
-      const playSvg = '<path d="M7 5h4v14H7zM13 5h4v14h-4z"/>';
-      const pauseAsPlay = '<path d="M8 5.5v13l11-6.5z"/>';
-      if (slidePlayIcon) slidePlayIcon.innerHTML = v ? playSvg : pauseAsPlay;
+      if (!bgMusic) return;
+      
       if(v){
-        startTimestamp = performance.now() - current * 1000;
-        timer = setInterval(step, 250);
+        bgMusic.play().then(() => {
+          if (slideArt) slideArt.classList.add('playing');
+          const playSvg = '<path d="M7 5h4v14H7zM13 5h4v14h-4z"/>'; // ikon pause
+          if (slidePlayIcon) slidePlayIcon.innerHTML = playSvg;
+        }).catch(err => {
+          console.log("Gagal memutar audio:", err);
+        });
       } else {
-        clearInterval(timer);
+        bgMusic.pause();
+        if (slideArt) slideArt.classList.remove('playing');
+        const pauseAsPlay = '<path d="M8 5.5v13l11-6.5z"/>'; // ikon play
+        if (slidePlayIcon) slidePlayIcon.innerHTML = pauseAsPlay;
       }
     }
 
-    function step(){
-      current = (performance.now() - startTimestamp) / 1000;
-      if(current >= DURATION){
-        current = 0;
-        startTimestamp = performance.now();
-      }
-      renderPlayer();
+    // Update tampilan setiap kali waktu audio berjalan
+    if (bgMusic) {
+      bgMusic.addEventListener('timeupdate', renderPlayer);
+      bgMusic.addEventListener('loadedmetadata', renderPlayer);
+      bgMusic.addEventListener('ended', () => {
+        setPlaying(false);
+        if (bgMusic) bgMusic.currentTime = 0;
+      });
     }
 
+    // Fitur Geser / Seek Progress Bar
     function seekFromEvent(track, e){
+      if (!bgMusic || isNaN(bgMusic.duration)) return;
       const rect = track.getBoundingClientRect();
       const x = (e.touches ? e.touches[0].clientX : e.clientX) - rect.left;
       const pct = Math.min(1, Math.max(0, x / rect.width));
-      current = pct * DURATION;
-      startTimestamp = performance.now() - current * 1000;
+      bgMusic.currentTime = pct * bgMusic.duration;
       renderPlayer();
     }
+
     let dragging = false;
     if (slideTrack) {
       slideTrack.addEventListener('pointerdown', (e) => { dragging = true; seekFromEvent(slideTrack, e); });
@@ -259,10 +271,14 @@ document.addEventListener('DOMContentLoaded', function() {
       window.addEventListener('pointerup', () => { dragging = false; });
     }
 
-    // tombol play di slide "Our Song"
+    // Tombol play di slide "Our Song"
     if (slidePlayBtn) {
-      slidePlayBtn.addEventListener('click', () => setPlaying(!playing));
+      slidePlayBtn.addEventListener('click', () => {
+        const isPlaying = !bgMusic.paused;
+        setPlaying(!isPlaying);
+      });
     }
 
     renderPlayer();
 });
+                        
