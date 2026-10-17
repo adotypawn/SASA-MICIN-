@@ -278,42 +278,44 @@ function openModal(src) {
     document.body.appendChild(modal);
 }
 </script>
-  <script>
+<script>
 document.addEventListener("DOMContentLoaded", () => {
-    // Ambil semua paragraf di dalam container teks-surat
+    const container = document.getElementById("teks-surat");
     const paragraphs = document.querySelectorAll("#teks-surat p");
+    
+    // 1. KUNCI TINGGI KOTAK SEBELUM TEKS DIHAPUS
+    // Ini akan menahan footer agar tidak naik ke atas
+    container.style.minHeight = container.getBoundingClientRect().height + "px";
     
     // Simpan teks asli dari masing-masing paragraf
     const textData = Array.from(paragraphs).map(p => p.textContent.trim());
     
-    // Kosongkan isi paragraf di layar (tetap mempertahankan class CSS bawaannya)
+    // Kosongkan isi paragraf di layar
     paragraphs.forEach(p => p.textContent = "");
 
     let pIndex = 0;
     let charIndex = 0;
-    const typingSpeed = 25; // Kecepatan ketik (milidetik per karakter)
-    const delayBetweenParagraphs = 400; // Jeda sebelum mengetik paragraf berikutnya
+    const typingSpeed = 25; // Kecepatan ketik
+    const delayBetweenParagraphs = 400; // Jeda antar paragraf
 
     function typeWriter() {
-        // Jika masih ada paragraf yang harus diketik
         if (pIndex < paragraphs.length) {
             const currentText = textData[pIndex];
             
-            // Jika masih ada karakter dalam paragraf saat ini
             if (charIndex < currentText.length) {
                 paragraphs[pIndex].textContent += currentText.charAt(charIndex);
                 charIndex++;
-                
-                // Gunakan setTimeout agar browser punya waktu untuk merender UI (mencegah lag)
                 setTimeout(typeWriter, typingSpeed);
             } else {
-                // Pindah ke paragraf berikutnya
                 pIndex++;
                 charIndex = 0;
                 setTimeout(typeWriter, delayBetweenParagraphs);
             }
         } else {
-            // (Opsional) Animasi selesai, Anda bisa memunculkan tombol NEXT di sini
+            // (Opsional) Lepaskan kunci tinggi setelah animasi selesai 
+            // agar tetap responsif jika layar di-resize
+            container.style.minHeight = "auto";
+            
             const btnNext = document.getElementById("btn-next-1");
             if (btnNext) {
                 btnNext.style.opacity = "1";
@@ -322,7 +324,6 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
-    // Mulai animasi dengan sedikit jeda agar animasi masuk (animasi-masuk) selesai dulu
     setTimeout(typeWriter, 800);
 });
 </script>
