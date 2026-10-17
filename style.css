@@ -250,44 +250,43 @@ button, a{ position:relative; z-index:50; }
         border-radius: 50%;
     }
 
-    /* Animasi Turun (Untuk Header Atas) */
-    @keyframes hero-fade-down {
-        0% { opacity: 0; transform: translateY(-30px); }
-        100% { opacity: 1; transform: translateY(0); }
-    }
-    .animate-hero-down {
-        animation: hero-fade-down 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+ 
+    /* 1. Akselerasi GPU untuk mencegah lag */
+    .gpu-accel {
+        transform: translateZ(0);
+        will-change: transform, opacity;
     }
 
-    /* Animasi Zoom (Untuk Foto & Nama) */
-    @keyframes hero-zoom-in {
-        0% { opacity: 0; transform: scale(0.85); }
+    /* 2. Animasi Melayang (Diringankan tanpa efek bayangan berubah-ubah) */
+    @keyframes float-lite {
+        0%, 100% { transform: translate3d(0, 0, 0); }
+        50% { transform: translate3d(0, -6px, 0); }
+    }
+    .animasi-ngambang-ringan {
+        animation: float-lite 4s ease-in-out infinite;
+        will-change: transform;
+    }
+
+    /* 3. Animasi Masuk Utama (Lebih simpel & mulus) */
+    @keyframes hero-fade-down {
+        0% { opacity: 0; transform: translate3d(0, -20px, 0); }
+        100% { opacity: 1; transform: translate3d(0, 0, 0); }
+    }
+    .animate-hero-down { animation: hero-fade-down 1s ease-out forwards; }
+
+    @keyframes hero-fade-in {
+        0% { opacity: 0; transform: scale(0.95); }
         100% { opacity: 1; transform: scale(1); }
     }
-    .animate-hero-zoom {
-        animation: hero-zoom-in 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-    }
+    .animate-hero-zoom { animation: hero-fade-in 1s ease-out forwards; }
 
-    /* Animasi Naik (Untuk Tombol) */
     @keyframes hero-fade-up {
-        0% { opacity: 0; transform: translateY(30px); }
-        100% { opacity: 1; transform: translateY(0); }
+        0% { opacity: 0; transform: translate3d(0, 20px, 0); }
+        100% { opacity: 1; transform: translate3d(0, 0, 0); }
     }
-    .animate-hero-up {
-        animation: hero-fade-up 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-    }
+    .animate-hero-up { animation: hero-fade-up 1s ease-out forwards; }
 
-    /* Delay Kemunculan Berurutan */
-    .delay-h1 { animation-delay: 0.2s; }
-    .delay-h2 { animation-delay: 0.8s; }
-    .delay-h3 { animation-delay: 1.5s; }
-
-    /* Efek Teks Bersinar untuk Judul Utama */
-    @keyframes text-glow {
-        0% { text-shadow: 0 0 10px rgba(255,255,255,0.1); }
-        50% { text-shadow: 0 0 20px rgba(255,255,255,0.7), 0 0 30px rgba(244,114,182,0.5); }
-        100% { text-shadow: 0 0 10px rgba(255,255,255,0.1); }
-    }
-    .animate-text-glow {
-        animation: text-glow 3s infinite alternate;
+    /* 4. Efek Teks (Dibuat statis tapi tetap bersinar, menghapus animasi glow berat) */
+    .text-glow-static {
+        text-shadow: 0 0 15px rgba(244,114,182,0.6);
     }
