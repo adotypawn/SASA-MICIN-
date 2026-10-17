@@ -115,3 +115,35 @@ button, a{ position:relative; z-index:50; }
 .show-section {
     display: block !important;
 }
+
+
+/* 1. Animasi Masuk (Fade Up) untuk setiap berganti slide */
+@keyframes slideMasuk {
+  from { opacity: 0; transform: translateY(35px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+/* Akan otomatis berjalan saat class 'show-section' ditambahkan oleh JavaScript */
+.show-section .animasi-masuk {
+  animation: slideMasuk 0.8s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+  will-change: transform, opacity;
+}
+
+/* 2. Animasi Mengambang (Floating) untuk foto agar tidak kaku */
+@keyframes ngambangLembut {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); } /* Bergerak naik turun sedikit saja agar ringan */
+}
+.animasi-ngambang {
+  animation: ngambangLembut 4s ease-in-out infinite;
+  will-change: transform;
+}
+
+/* 3. Animasi Detak (Pulse) untuk teks akhir agar romantis */
+@keyframes detakCinta {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+.animasi-detak {
+  animation: detakCinta 2.5s ease-in-out infinite;
+  will-change: transform;
+}
