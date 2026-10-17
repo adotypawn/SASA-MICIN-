@@ -33,25 +33,36 @@
             <h3 class="text-xl font-anime text-pink-300 mb-2">Special Gift For You</h3>
         </div>
 
-        <div class="z-10 pt-8 opacity-0 transition-opacity duration-1000" id="hero-content-1">
-            <p class="text-xs md:text-sm tracking-[0.25em] text-pink-300 uppercase font-semibold">
-                Special Gift
-            </p>
-            <h2 class="text-sm md:text-base tracking-widest text-gray-200 mt-1">TO SOMEONE SPECIAL✨</h2>
-        </div>
+       <!-- 1. Bagian Header Atas (Meluncur dari atas) -->
+<div class="z-10 pt-8 opacity-0 animate-hero-down delay-h1" id="hero-content-1">
+    <p class="text-xs md:text-sm tracking-[0.25em] text-pink-300 uppercase font-semibold">
+        Special Gift
+    </p>
+    <h2 class="text-sm md:text-base tracking-widest text-gray-200 mt-1">TO SOMEONE SPECIAL✨</h2>
+</div>
 
-        <div class="z-10 my-auto flex flex-col items-center opacity-0 transition-opacity duration-1000" id="hero-content-2">
-            <img src="img/fotoutama.jpeg" class="w-52 h-52 md:w-64 md:h-64 bentuk-love shadow-2xl mb-6 placeholder-photo animasi-ngambang">
-            <h1 class="text-3xl md:text-5xl font-anime drop-shadow-lg text-white">Happy Legal Day, Jeong Lee-an!</h1>
-        </div>
+<!-- 2. Bagian Foto & Nama (Muncul membesar/zoom-in) -->
+<div class="z-10 my-auto flex flex-col items-center opacity-0 animate-hero-zoom delay-h2" id="hero-content-2">
+    <!-- Menambahkan efek terang saat di-hover pada foto -->
+    <img src="img/fotoutama.jpeg" class="w-52 h-52 md:w-64 md:h-64 bentuk-love shadow-2xl mb-6 placeholder-photo animasi-ngambang hover:brightness-110 hover:scale-105 transition-all duration-500 cursor-pointer">
+    
+    <!-- Menambahkan class animate-text-glow agar judul bersinar perlahan -->
+    <h1 class="text-3xl md:text-5xl font-anime text-white animate-text-glow text-center px-4">
+        Happy Legal Day, Jeong Lee-an!
+    </h1>
+</div>
 
-        <div class="z-10 pb-12 opacity-0 transition-opacity duration-1000" id="hero-content-3">
-            <button id="btn-open-letter" class="inline-flex items-center gap-2 border border-pink-400/50 bg-black/40 hover:bg-pink-500/20 text-pink-200 px-6 py-3 rounded-full text-sm font-semibold tracking-wider transition-all duration-300 backdrop-blur-md shadow-lg cursor-pointer">
-                OPEN LETTER
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                </svg>
-            </button>
+<!-- 3. Bagian Tombol (Meluncur dari bawah) -->
+<div class="z-10 pb-12 opacity-0 animate-hero-up delay-h3" id="hero-content-3">
+    <!-- Menambahkan "group" dan mengubah interaksi hover agar tombol membesar dan panah bergeser -->
+    <button id="btn-open-letter" class="group inline-flex items-center gap-2 border border-pink-400/50 bg-black/40 hover:bg-pink-500 hover:border-pink-500 text-pink-200 hover:text-white px-8 py-3.5 rounded-full text-sm font-semibold tracking-wider transition-all duration-500 backdrop-blur-md shadow-[0_0_15px_rgba(244,114,182,0.3)] hover:shadow-[0_0_25px_rgba(244,114,182,0.6)] hover:-translate-y-1 cursor-pointer">
+        OPEN LETTER
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 transform group-hover:translate-x-1 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+        </svg>
+    </button>
+</div>
+
         </div>
     </header>
 
