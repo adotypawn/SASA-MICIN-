@@ -164,3 +164,9 @@ button, a{ position:relative; z-index:50; }
   0%, 100% { opacity: 1; }
   50% { opacity: 0; }
 }
+
+#btn-next-1 {
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.8s ease-in-out;
+}
