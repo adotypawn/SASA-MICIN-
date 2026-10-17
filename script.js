@@ -326,3 +326,16 @@ function jalankanMesinKetik() {
     // Mulai ketik!
     ketikSelanjutnya();
 }
+
+    if (btnOpenLetter && letterSection) {
+        btnOpenLetter.addEventListener('click', function(e) {
+            e.preventDefault();
+            if (headerHero) headerHero.style.display = 'none';
+            letterSection.classList.remove('hidden-section');
+            letterSection.classList.add('show-section');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            
+            // PANGGIL ANIMASI KETIK DI SINI:
+            setTimeout(jalankanMesinKetik, 300); // Beri jeda sedikit agar slidenya muncul dulu baru ngetik
+        });
+    }
