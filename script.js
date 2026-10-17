@@ -342,8 +342,8 @@ function jalankanMesinKetik() {
 // Fitur Pause saat keluar aplikasi
 document.addEventListener("visibilitychange", () => {
     if (document.hidden) {
-        audio.pause();
+        bgMusic.pause();
     } else {
-        audio.play().catch(() => {}); // Lanjut putar saat balik
+        bgMusic.play().catch(() => {}); // Lanjut putar saat balik
     }
 });
