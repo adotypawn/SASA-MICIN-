@@ -339,3 +339,11 @@ function jalankanMesinKetik() {
             setTimeout(jalankanMesinKetik, 300); // Beri jeda sedikit agar slidenya muncul dulu baru ngetik
         });
     }
+// Fitur Pause saat keluar aplikasi
+document.addEventListener("visibilitychange", () => {
+    if (document.hidden) {
+        audio.pause();
+    } else {
+        audio.play().catch(() => {}); // Lanjut putar saat balik
+    }
+});
