@@ -170,3 +170,18 @@ button, a{ position:relative; z-index:50; }
     pointer-events: none;
     transition: opacity 0.8s ease-in-out;
 }
+
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-8px); }
+    100% { transform: translateY(0px); }
+}
+
+.animate-float {
+    animation: float 4s ease-in-out infinite;
+}
+
+/* Opsional: Memberikan delay berbeda agar tidak bergerak bersamaan */
+.delay-1 { animation-delay: 0s; }
+.delay-2 { animation-delay: 1s; }
+.delay-3 { animation-delay: 2s; }
