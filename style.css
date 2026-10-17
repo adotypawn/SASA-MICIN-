@@ -107,3 +107,11 @@ button, a{ position:relative; z-index:50; }
   0%{ transform: translate(-50%,-50%) scale(.4); opacity:1; }
   100%{ transform: translate(calc(-50% + var(--tx)), calc(-50% + var(--ty))) scale(1.15); opacity:0; }
 }
+
+.hidden-section {
+    display: none !important;
+}
+
+.show-section {
+    display: block !important;
+}
