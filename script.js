@@ -274,3 +274,55 @@ document.addEventListener('DOMContentLoaded', function() {
 
     renderPlayer();
 });
+
+// Fungsi Animasi Mengetik Paragraf demi Paragraf
+function jalankanMesinKetik() {
+    const bungkusSurat = document.getElementById('teks-surat');
+    if (!bungkusSurat) return;
+    
+    // Cek agar tidak mengetik ulang jika slide ditutup lalu dibuka lagi
+    if (bungkusSurat.dataset.sudahKetik === 'ya') return; 
+    bungkusSurat.dataset.sudahKetik = 'ya';
+
+    const paragraf = bungkusSurat.querySelectorAll('p');
+    const teksAsli = [];
+
+    // Simpan teks asli lalu kosongkan HTML-nya
+    paragraf.forEach(p => {
+        teksAsli.push(p.innerHTML);
+        p.innerHTML = '';
+        p.style.display = 'none'; // Sembunyikan dulu
+    });
+
+    let indexParagraf = 0;
+    let indexHuruf = 0;
+    let kecepatanKetik = 35; // Semakin kecil angka, semakin cepat (dalam milidetik)
+
+    const kursor = document.createElement('span');
+    kursor.className = 'kursor-ketik';
+
+    function ketikSelanjutnya() {
+        if (indexParagraf < paragraf.length) {
+            const p = paragraf[indexParagraf];
+            p.style.display = 'block'; // Tampilkan paragraf saat ini
+
+            if (indexHuruf < teksAsli[indexParagraf].length) {
+                // Tulis huruf satu per satu
+                kursor.remove(); // Cabut kursor sementara
+                p.innerHTML = teksAsli[indexParagraf].substring(0, indexHuruf + 1);
+                p.appendChild(kursor); // Tempel kursor di akhir
+                indexHuruf++;
+                setTimeout(ketikSelanjutnya, kecepatanKetik);
+            } else {
+                // Pindah ke paragraf berikutnya setelah jeda sejenak
+                kursor.remove();
+                indexParagraf++;
+                indexHuruf = 0;
+                setTimeout(ketikSelanjutnya, 500); // Jeda setengah detik antar paragraf
+            }
+        }
+    }
+
+    // Mulai ketik!
+    ketikSelanjutnya();
+}
