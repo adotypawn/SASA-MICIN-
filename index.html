@@ -250,6 +250,35 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.1/lightgallery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.2/lightgallery.min.js"></script>
     <script src="script.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const mysteryBox = document.getElementById("mystery-box");
+        const content1 = document.getElementById("hero-content-1");
+        const content2 = document.getElementById("hero-content-2");
+        const content3 = document.getElementById("hero-content-3");
+
+        mysteryBox.addEventListener("click", function() {
+            // 1. Kado menghilang ke atas
+            mysteryBox.style.opacity = "0";
+            mysteryBox.style.transform = "translateY(-100%)";
+            mysteryBox.style.pointerEvents = "none"; 
+
+            // 2. Memicu animasi konten secara berurutan setelah kado diklik
+            setTimeout(() => {
+                content1.classList.add("animate-hero-down");
+            }, 300); // Teks atas muncul setelah 0.3 detik
+
+            setTimeout(() => {
+                content2.classList.add("animate-hero-zoom");
+            }, 900); // Foto & Nama muncul setelah 0.9 detik
+
+            setTimeout(() => {
+                content3.classList.add("animate-hero-up");
+            }, 1600); // Tombol muncul setelah 1.6 detik
+        });
+    });
+</script>
+
 <script>
 function openModal(src) {
     const modal = document.createElement('div');
