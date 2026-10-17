@@ -218,3 +218,34 @@ button, a{ position:relative; z-index:50; }
     .item-6 { animation-delay: 1.2s; }
     .item-7 { animation-delay: 1.4s; }
     .item-8 { animation-delay: 1.6s; }
+
+    /* Animasi masuk untuk kotak music player */
+    @keyframes fade-in-scale {
+        0% { opacity: 0; transform: scale(0.9) translateY(30px); }
+        100% { opacity: 1; transform: scale(1) translateY(0); }
+    }
+    .animasi-masuk-player {
+        opacity: 0;
+        animation: fade-in-scale 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    /* Animasi melayang + efek cahaya untuk cover lagu */
+    @keyframes float-glow {
+        0% { transform: translateY(0px); box-shadow: 0 10px 15px -3px rgba(236, 72, 153, 0.3); }
+        50% { transform: translateY(-8px); box-shadow: 0 20px 25px -5px rgba(236, 72, 153, 0.6); }
+        100% { transform: translateY(0px); box-shadow: 0 10px 15px -3px rgba(236, 72, 153, 0.3); }
+    }
+    .animasi-ngambang-glow {
+        animation: float-glow 4s ease-in-out infinite;
+    }
+
+    /* Efek gelombang/denyut pada tombol Play */
+    @keyframes ripple-play {
+        0% { box-shadow: 0 0 0 0 rgba(244, 114, 182, 0.6); }
+        70% { box-shadow: 0 0 0 15px rgba(244, 114, 182, 0); }
+        100% { box-shadow: 0 0 0 0 rgba(244, 114, 182, 0); }
+    }
+    .play-btn-ripple {
+        animation: ripple-play 2s infinite;
+        border-radius: 50%;
+    }
