@@ -147,3 +147,20 @@ button, a{ position:relative; z-index:50; }
   animation: detakCinta 2.5s ease-in-out infinite;
   will-change: transform;
 }
+
+/* Efek Kursor Mesin Ketik */
+.kursor-ketik {
+  display: inline-block;
+  width: 6px;
+  height: 1.1em;
+  background-color: #f9a8d4; /* Warna pink selaras dengan tema */
+  vertical-align: text-bottom;
+  animation: kedip-kursor 0.8s infinite;
+  margin-left: 4px;
+  border-radius: 2px;
+}
+
+@keyframes kedip-kursor {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
