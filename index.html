@@ -43,17 +43,18 @@
     </div>
 
     <!-- 2. Bagian Foto & Nama -->
-   <div class="z-10 my-auto flex flex-col items-center opacity-0 gpu-accel" id="hero-content-2">
-    <!-- Gambar dibungkus div agar bentuk hati simetris dan foto tidak gepeng -->
-    <div class="w-52 h-52 md:w-64 md:h-64 aspect-square shrink-0 bentuk-love shadow-lg mb-6 placeholder-photo animasi-ngambang-ringan hover:scale-105 transition-transform duration-300 cursor-pointer overflow-hidden">
+<div class="z-10 my-auto flex flex-col items-center opacity-0 gpu-accel" id="hero-content-2">
+    <!-- Ukuran dikunci dengan inline style agar tidak bisa tertekan/gepeng -->
+    <div class="bentuk-love shadow-lg mb-6 placeholder-photo animasi-ngambang-ringan hover:scale-105 transition-transform duration-300 cursor-pointer overflow-hidden" 
+         style="width: 220px; height: 220px; min-width: 220px; min-height: 220px; flex-shrink: 0;">
         <img src="img/salsa4.jpg" class="w-full h-full object-cover object-center" alt="Foto Salsa">
     </div>
 
-    <!-- Pakai text-glow-static dibanding animasi glow -->
     <h1 class="text-3xl md:text-5xl font-anime text-white text-glow-static text-center px-4">
         Happy Birthday, Calcuyy
     </h1>
 </div>
+
 
 
     <!-- 3. Bagian Tombol -->
