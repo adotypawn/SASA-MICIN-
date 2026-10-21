@@ -52,7 +52,6 @@ button, a{ position:relative; z-index:50; }
   mask-repeat: no-repeat;
   -webkit-mask-position: center;
   mask-position: center;
-  filter: drop-shadow(0 10px 20px rgba(255, 105, 180, 0.6));
 }
 
 /* placeholder photo tiles (swap these with real <img> once photos are uploaded) */
